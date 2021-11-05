@@ -1,0 +1,105 @@
+[27/10/21] [15:29:36] 
+  !!! unhandledRejection !!!
+  reason
+  {"name":"SequelizeAccessDeniedError","parent":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"},"original":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"}}
+  promise
+  {"isFulfilled":false,"isRejected":true,"rejectionReason":{"name":"SequelizeAccessDeniedError","parent":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"},"original":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"}}}
+  --------
+  LAST DEBUG
+  ["init"]
+  --------
+
+
+
+
+  
+[27/10/21] [15:30:44] 
+  !!! unhandledRejection !!!
+  reason
+  {"name":"SequelizeAccessDeniedError","parent":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"},"original":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"}}
+  promise
+  {"isFulfilled":false,"isRejected":true,"rejectionReason":{"name":"SequelizeAccessDeniedError","parent":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"},"original":{"fatal":true,"errno":1045,"sqlState":"28000","code":"ER_ACCESS_DENIED_ERROR"}}}
+  --------
+  LAST DEBUG
+  ["init"]
+  --------
+
+
+
+
+  
+[27/10/21] [15:31:33] 
+  !!! unhandledRejection !!!
+  reason
+  {"name":"SequelizeDatabaseError","parent":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"original":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"}
+  promise
+  {"isFulfilled":false,"isRejected":true,"rejectionReason":{"name":"SequelizeDatabaseError","parent":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"original":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"}}
+  --------
+  LAST DEBUG
+  ["init"]
+  --------
+
+
+
+
+  
+[27/10/21] [15:32:36] 
+  !!! unhandledRejection !!!
+  reason
+  {"name":"SequelizeDatabaseError","parent":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"original":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"}
+  promise
+  {"isFulfilled":false,"isRejected":true,"rejectionReason":{"name":"SequelizeDatabaseError","parent":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"original":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"}}
+  --------
+  LAST DEBUG
+  ["init"]
+  --------
+
+
+
+
+  
+[27/10/21] [15:33:46] 
+  !!! unhandledRejection !!!
+  reason
+  {"name":"SequelizeDatabaseError","parent":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"original":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"}
+  promise
+  {"isFulfilled":false,"isRejected":true,"rejectionReason":{"name":"SequelizeDatabaseError","parent":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"original":{"fatal":false,"errno":1171,"sqlState":"42000","code":"ER_PRIMARY_CANT_HAVE_NULL","sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"},"sql":"CREATE TABLE IF NOT EXISTS `pAFk3qiAgG1_log_auth` (`id` INTEGER(11) NOT NULL auto_increment DEFAULT NULL , `nick` VARCHAR(128) NOT NULL DEFAULT '', `lic` VARCHAR(512) NOT NULL DEFAULT '', `datetime` INTEGER(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;"}}
+  --------
+  LAST DEBUG
+  ["init"]
+  --------
+
+
+
+
+  
+[30/10/21] [10:06:40] 
+  !!! unhandledRejection !!!
+  reason
+  {"name":"SequelizeConnectionError","parent":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"},"original":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"}}
+  promise
+  {"isFulfilled":false,"isRejected":true,"rejectionReason":{"name":"SequelizeConnectionError","parent":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"},"original":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"}}}
+  --------
+  LAST DEBUG
+  ["init"]
+  --------
+
+
+
+
+  
+[30/10/21] [10:06:48] 
+  !!! unhandledRejection !!!
+  reason
+  {"name":"SequelizeConnectionError","parent":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"},"original":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"}}
+  promise
+  {"isFulfilled":false,"isRejected":true,"rejectionReason":{"name":"SequelizeConnectionError","parent":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"},"original":{"fatal":true,"errno":1049,"sqlState":"42000","code":"ER_BAD_DB_ERROR"}}}
+  --------
+  LAST DEBUG
+  ["init","Container.ResetAll","player.ready DAEC1250D7DE1868B02652200004C660666831E448DE502846700008B2D4BA808BEA7854F02A3AC0000C9E480E98E5F0A8CA902C2E1000108ABC62B03FA2C140"]
+  --------
+
+
+
+
+  

@@ -1,11 +1,6 @@
 tempdata.json
-node_modules/
-.idea/
-.vscode
-logs/
-log
+node_modules
 .cache/
-*.log
 LoadServer.log
 Money.log
 PlayerActivity.log
