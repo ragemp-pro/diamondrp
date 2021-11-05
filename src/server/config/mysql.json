@@ -1,0 +1,7 @@
+{
+  "host": "127.0.0.1",
+  "db_user": "root",
+  "password": "",
+  "database": "diamond",
+  "port": 3306
+}
