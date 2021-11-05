@@ -1,0 +1,437 @@
+.casino-box {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    line-height: initial;
+}
+
+.casino-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+.casino-main .cards-btn {
+    margin: auto auto 78px auto;
+    width: 288px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    border-radius: 6px;
+    box-shadow: 0px 0px 0px 6px rgba(230, 244, 255, 0.7),0px 0px 100px 0px rgba(255, 255, 255, 0.7);
+}
+.player-card {
+    width: 123px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:url(./assets/light-style.png) no-repeat center, linear-gradient( 0deg, rgb(95,121,167) 0%, rgb(56,74,106) 100%); ;
+    border-radius: 4px;
+    box-shadow: 0px 10px 20px 0px rgba(23, 70, 152, 0.3);
+    font-family: "Montserrat";
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+.diler-card {
+    width: 123px;
+    height: 34px;
+    margin-left: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: rgba(56, 74, 106, 0);
+    box-shadow: inset 0px 0px 0px 2px rgba(165, 165, 165, 0.404);
+    font-family: "Montserrat";
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(165, 165, 165);
+    text-transform: uppercase;
+}
+.casino-main .game-menu {
+    position: absolute;
+    right: 114px;
+    width: 223px;
+}
+.info-rate {
+
+    min-height: 126px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 0px 6px rgba(230, 244, 255, 0.7),0px 0px 100px 0px rgba(255, 255, 255, 0.7);
+}
+.casino-game {
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 0px 6px rgba(230, 244, 255, 0.7),0px 0px 100px 0px rgba(255, 255, 255, 0.7);
+}
+.title-rate {
+    font-family: "Montserrat";
+    color: rgb(180, 192, 209);
+    text-transform: uppercase;
+    font-size: 8px;
+    text-align: left;
+    padding-left: 16px;
+    font-weight: bold;
+}
+.title-rate:not(:first-child){
+    margin-top: 9px;
+}
+.text-rate {
+    font-family: "Montserrat";
+    color: rgb(58, 77, 109);
+    font-size: 12px;
+    text-align: left;
+    margin-top: 3px;
+    padding-left: 16px;
+    font-weight: bold;
+}
+.casino-game .title-game {
+    width: inherit;
+    font-family: "Montserrat";
+    color: rgb(180, 192, 209);
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 12px;
+}
+.title-game .title-text {
+    width: inherit;
+}
+.icon-question {
+    background: url(./assets/icon-question.png) no-repeat;
+    width: 21px;
+    height: 21px;
+    margin-left: auto;
+    position: absolute;
+    right: 13px;
+}
+.clm-info-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.icon-poker {
+    background: url(./assets/pokerlogo.png) no-repeat;
+    width: 82px;
+    height: 82px;
+    margin-left: 14px;
+}
+.icon-roulette {
+    background: url(./assets/roulette.png) no-repeat;
+    width: 89px;
+    height: 89px;
+    margin-left: 13px;
+}
+.icon-slots {
+    background: url(./assets/slot.png) no-repeat;
+    width: 82px;
+    height: 62px;
+    margin-left: 13px;
+}
+.icon-dice {
+    background: url(./assets/bones.png) no-repeat;
+    width: 100px;
+    height: 68px;
+    margin-left: 0px;
+}
+.game-txt-title {
+    width: inherit;
+    font-size: 8px;
+    font-family: "Montserrat";
+    color: rgb(180, 192, 209);
+    text-transform: uppercase;
+    text-align: center;
+}
+.slider-box {
+    position: relative;
+    margin-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 109px;
+    height: 35px;
+    border-radius: 4px;
+    background-color: rgb(235, 241, 246);
+    box-shadow: inset 0px 0px 0px 2px rgba(220, 228, 235, 0.97);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow-btn-left {
+    position: absolute;
+    left: 10px;
+
+    background: url(./assets/img-arrow-left.png) no-repeat;
+    width: 5px;
+    height: 7px;
+    cursor: pointer;
+}
+.right-position {
+    position: absolute;
+    right: 10px;
+    left: initial;
+
+    transform: rotate(180deg);
+}
+.text-number-game {
+    font-family: "Montserrat";
+    font-size: 12px;
+    color: rgb(58, 77, 109);
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+span.text-number-game {
+    user-select: none;
+    cursor: text;
+}
+
+span.text-number-game:not(.editable) {
+    cursor: default;
+}
+
+span.text-number-game.editable {
+    pointer-events: auto;
+}
+
+input.text-number-game {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+}
+.margin-top-menu {
+    margin-top: 2px;
+}
+.margin-top-menu-title {
+    margin-top: 8px;
+}
+.btn-menu-top {
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 14px;
+}
+.btn-menu-player {
+    width: 93px;
+    height: 25px;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat";
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    transition: box-shadow 0.2s ease;
+}
+
+.btn-green {
+    background-image: -webkit-linear-gradient( 0deg, rgb(0,198,112) 0%, rgb(82,189,109) 100%);
+    box-shadow: 0px 10px 20px 0px rgba(78, 192, 110, 0.3);
+}
+.btn-red {
+    margin-left: 3px;
+    background-image: -webkit-linear-gradient( 0deg, rgb(252,96,96) 0%, rgb(196,77,77) 100%);
+    box-shadow: 0px 10px 20px 0px rgba(198, 77, 77, 0.3);
+}
+
+.btn-menu-player:hover {
+    box-shadow: 0 3px 15px rgb(56,74,106);
+}
+.big-btn-menu-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(./assets/light-style.png) no-repeat center, linear-gradient( 0deg, rgb(95,121,167) 0%, rgb(56,74,106) 100%);
+
+    border-radius: 4px;
+    width: 123px;
+    height: 34px;
+    font-family: "Montserrat";
+    font-size: 11px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+
+    transition: box-shadow 0.2s ease;
+}
+
+.big-btn-menu-player:hover {
+    box-shadow: 0 3px 15px rgb(56,74,106);
+}
+
+.special-bottom {
+    margin-bottom: 8px;
+}
+.mrg-bottm {
+    margin-bottom: 11px;
+}
+.game-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 513px;;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 0px 6px rgba(230, 244, 255, 0.7),0px 0px 100px 0px rgba(255, 255, 255, 0.7);
+}
+.game-info .title {
+    font-family: "Montserrat";
+    font-size: 11px;
+    color: rgb(180, 192, 209);
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 28px;
+    margin-bottom: 32px;
+}
+.game-info .title .icon-close {
+    background: url(./assets/close.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: -134px;
+}
+.game-info .h1-title-txt {
+    font-size: 10px;
+    font-family: "Montserrat";
+    color: rgb(180, 192, 209);
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 500;
+}
+.h3-last-txt {
+    margin-left: 27px;
+    margin-right: 23px;
+    font-family: "Montserrat";
+    font-size: 11.74px;
+    text-align: center;
+    color: rgb(58, 77, 109);
+    font-weight: 500;
+}
+.h3-last-txt:nth-child(5) {
+    margin-top: 9px;
+}
+.h1-title-txt:nth-child(n+4) {
+    margin-top: 14px;
+}
+.game-info .img-for-info{
+    margin-top: 15px;
+    margin-bottom: 9px;
+}
+.margin-exl {
+    margin-top: 9px;
+}
+.hover {
+    display: none;
+}
+
+.rules-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 30px;
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+.rules-button {
+    padding: 4px 9px;
+    background: rgb(235, 241, 246);
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 0px 2px rgba(220, 228, 235, 0.97);
+
+    transition: background 0.2s ease;
+}
+
+.rules-button:hover {
+    background: rgba(220, 228, 235, 0.97);
+}
+
+.description-text h1 {
+    font-family: "Montserrat";
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.description-text b {
+    font-weight: bold;
+}
+
+@media (max-width:1000px) and (min-width:600px) {
+    .casino-box {
+        zoom:71.6%;
+    }
+}
+@media (max-width:1100px) and (min-width:1001px) {
+    .casino-box {
+        zoom:83.3%;
+    }
+}
+@media (max-width:1280px) and (min-width:1101px) {
+    .casino-box {
+        zoom:96.6%;
+    }
+}
+@media (max-width:1400px) and (min-width:1281px) {
+    .casino-box {
+        zoom:101.1%;
+    }
+}
+@media (max-width:1800px) and (min-width:1401px) {
+    .casino-box {
+        zoom:113.3%;
+    }
+}
+@media (max-width:2000px) and (min-width:1800px) {
+    .casino-box {
+        zoom:120%;
+    }
+}
+@media (max-width:3000px) and (min-width:2000px) {
+    .casino-box {
+        zoom:130%;
+    }
+}

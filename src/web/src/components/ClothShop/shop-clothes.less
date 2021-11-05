@@ -1,0 +1,311 @@
+// @dark: #2e4060;
+
+
+
+// .posrev {
+// 	position: relative;
+// }
+
+
+// .w100 {
+// 	width: 100%;
+// }
+
+// .anim {
+// 	transition: all 0.23232323s ease-in-out;
+// 	-webkit-transition: all 0.23232323s ease-in-out;
+// 	-moz-transition: all 0.23232323s ease-in-out;
+// }
+
+
+
+
+// .dn {
+// 	display: none;
+// }
+
+// .left-box-screen {
+// 	position: absolute;
+// 	left: 0;
+// 	top: 0;
+// 	width: 390px;
+// 	height: 100%;
+// 	display: grid;
+// 	grid-template-columns: 1fr;
+// 	grid-template-rows: auto 1fr;
+// 	padding: 40px 40px;
+// 	perspective: 800px;
+	
+// 	&.clothes {
+// 		width: 390px;
+
+// 		&:after {
+// 			width: 570px;
+// 			transform: rotate3d(0, 1, 0, 30deg);
+// 		}
+// 	}
+
+// 	&>div {
+// 		position: relative;
+// 		z-index: 100;
+// 	}
+
+// 	&:after {
+// 		content: '';
+// 		width: 570px;
+// 		height: 130%;
+// 		position: absolute;
+// 		background: rgba(58, 76, 109, 0.7);
+// 		transform: rotate3d(0, 1, 0, 40deg);
+// 		transform-origin: left center;
+// 		border-radius: 10px;
+// 		display: block;
+// 		left: -10%;
+// 		top: -15%;
+// 		pointer-events: none;
+// 		z-index: 10;
+// 	}
+
+// 	.left-box-title {
+// 		margin-bottom: 20px;
+// 		font-weight: 700;
+// 		line-height: 1.4;
+
+// 		strong {
+// 			font-size: 30px;
+// 			letter-spacing: 0px;
+// 			text-transform: none;
+// 			display: block;
+// 			line-height: 1;
+// 		}
+
+// 		font-size: 14px;
+// 		letter-spacing: 2px;
+// 		text-transform: uppercase;
+// 		color: #fff;
+// 	}
+
+// 	.left-box-enter-list {
+// 		height: 100%;
+// 		overflow: auto;
+// 		padding-right: 5px;
+// 		display: grid;
+// 		grid-template-columns: 1fr;
+// 		grid-template-rows: auto 1fr auto;
+// 		overflow-x: hidden;
+
+// 		.clothes-list {
+// 			overflow: auto;
+// 		}
+
+// 		&.clothes {
+// 			.clothes-item {
+// 				display: flex;
+// 				align-items: center;
+// 				justify-content: space-between;
+
+// 				span {
+// 					font-weight: 700;
+// 					margin-left: 20px;
+// 				}
+
+// 			}
+// 		}
+
+// 		.clothes-item {
+// 			width: 90%;
+// 			background: rgba(18, 19, 14, 0.2);
+// 			padding: 14px;
+// 			color: #fff;
+// 			font-size: 16px;
+// 			border-radius: 6px;
+// 			margin-bottom: 3px;
+// 			.anim;
+// 			cursor: pointer;
+// 			display: flex;
+// 			align-items: center;
+// 			justify-content: space-between;
+// 			flex-wrap: wrap;
+
+// 			&>img {
+// 				width: 20px;
+// 				margin-right: 10px;
+// 			}
+
+// 			&:hover {
+// 				background: rgba(18, 19, 14, 0.4);
+// 			}
+
+// 			&.active {
+// 				background-color: rgba(18, 19, 14, 0.302);
+// 				box-shadow: inset 0px 0px 0px 2px rgba(136, 217, 255, 1), inset 0px 2px 21px 0px rgba(136, 217, 255, 0.64);
+// 			}
+
+// 			p {
+// 				width: 100%;
+// 				display: flex;
+// 				align-items: center;
+// 				justify-content: flex-start;
+
+// 				&>img {
+// 					width: 20px;
+// 					margin-right: 10px;
+// 				}
+// 			}
+
+// 			&.clth {
+// 				p {
+// 					justify-content: space-between;
+// 				}
+// 			}
+
+// 			.buttons-wrap {
+// 				width: 100%;
+// 				margin-top: 10px;
+// 				justify-content: flex-end;
+
+// 				&>* {
+// 					margin-right: 10px;
+// 				}
+// 			}
+
+// 			.b-line {
+// 				display: none;
+// 			}
+// 		}
+
+
+// 	}
+// }
+
+// .car-buy-box {
+// 	position: relative;
+// 	left: -31px;
+// 	bottom: 0px;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: flex-start;
+// 	padding: 20px 0 0;
+
+// 	&>div {
+// 		text-align: left;
+// 		margin-left: 10px;
+// 		white-space: nowrap;
+
+// 		p {
+// 			color: #fff;
+// 			font-size: 14px;
+// 			font-weight: 700;
+// 			letter-spacing: 2px;
+
+// 			&:first-child {
+// 				margin-bottom: 4px;
+// 			}
+
+// 			strong {
+// 				letter-spacing: 0;
+// 				font-size: 24px;
+// 			}
+// 		}
+// 	}
+// }
+
+// span.gold {
+// 	color: #fff831;
+// }
+
+// .car-info-box {
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 350px;
+// 	padding-bottom: 40px;
+// 	max-width: 40%;
+// 	width: 100%;
+
+// 	p {
+// 		&.car-name {
+// 			font-size: 30px;
+// 			font-weight: 700;
+// 			color: #fff;
+// 			margin-bottom: 4px;
+// 		}
+
+// 		&.car-class {
+// 			font-size: 14px;
+// 			color: #fff;
+// 			font-weight: 700;
+
+// 			img {
+// 				width: 14px;
+// 				margin: 0 10px;
+// 			}
+
+// 		}
+// 	}
+// }
+
+// .color-selection {
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: flex-start;
+// 	flex-wrap: wrap;
+// 	width: 100%;
+
+// 	&>div {
+// 		width: 20px;
+// 		height: 20px;
+// 		border-radius: 50%;
+// 		background: #fff;
+// 		.anim;
+// 		margin-right: 5px;
+// 		margin-bottom: 5px;
+// 		cursor: pointer;
+
+// 		&.active {
+// 			box-shadow: 0px 0px 0px 2px rgba(11, 29, 60, 0.004), inset 0px 0px 0px 2px rgba(255, 255, 255, 1);
+// 			transform: scale(1.3, 1.3);
+// 		}
+
+// 		&:hover {
+// 			box-shadow: 0px 0px 0px 2px rgba(11, 29, 60, 0.004), inset 0px 0px 0px 2px rgba(255, 255, 255, 1);
+// 		}
+// 	}
+// }
+
+// @media(max-width:1300px) {
+// 	.car-info-box {
+// 		transform: scale(.6, .6);
+// 		transform-origin: left bottom;
+// 	}
+
+
+// 	.left-box-screen .left-box-title strong {
+// 		font-size: 20px;
+// 	}
+
+
+// 	.car-info-box {
+// 		left: 290px;
+// 	}
+
+// 	.left-box-screen {
+// 		width: 290px;
+
+
+// 		&:after {
+// 			width: 460px;
+// 			height: 130%;
+// 		}
+
+
+// 		.left-box-enter-list {
+
+// 			&>div {
+// 				padding: 8px;
+// 				font-size: 13px;
+// 				margin-bottom: 3px;
+
+// 			}
+// 		}
+// 	}
+// }

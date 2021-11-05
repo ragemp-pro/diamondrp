@@ -1,0 +1,32 @@
+body {
+  background-color: #fcfcfc;
+}
+
+.section {
+  padding: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.section input {
+  margin: 10px 0;
+  
+}
+
+.section button {
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+}
+
+.logs button {
+  margin: 20px 0;
+}
+
+@media (max-width: 767.98px) {
+  h2 {
+    font-size: 4vw;
+  }
+  #logs > div {
+    margin: 20px 0;
+  }
+}

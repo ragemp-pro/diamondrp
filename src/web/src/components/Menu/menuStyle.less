@@ -1,0 +1,426 @@
+/* -------------------------------------------------------------
+-------------------------- POPUP MENU --------------------------
+------------------------------------------------------------- */
+
+.popup-menu {
+  position: absolute;
+  top: 200px;
+  right: 20px;
+  width: 380px;
+  user-select: none;
+}
+
+.popup-menu:hover {
+  cursor: default;
+}
+
+.popup-menu .right {
+  float: right;
+}
+
+
+
+.popup-menu .header  {
+  .title {
+    margin-bottom: -5px;
+    padding: 24px 12px;
+    font-size: 25px;
+    color: #fff;
+    min-height: 100px;
+  
+    background: rgba(0, 0, 0, 1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    /* Современные браузеры */
+  }
+  .subtitle {
+    
+    height: 38px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    // text-transform: uppercase;
+    color: #ccc;
+    background: rgba(55, 59, 72, 0.9);
+  }
+}
+
+
+
+/* --- HEADER STYLES (make your own here) --- */
+
+/* http://www.colorzilla.com/gradient-editor/#135299+0,3873aa+30,467baa+32,6088af+70,6c8eb2+72,5f89b5+88,7594b7+90,668cba+100 */
+
+
+.popup-menu .header.blue h3 span {
+  color: #3D74B3
+}
+
+/* --- ITEM LIST STYLES --- */
+
+.popup-menu>ul {
+  border-bottom: 1px solid rgb(73, 78, 95);
+  background-color: rgba(0, 0, 0, 0.72);
+  max-height: 290px;
+  margin-bottom: 0px;
+  overflow: auto;
+}
+
+
+
+.popup-menu>ul>li {
+  position: relative;
+  padding: 10px;
+  font-size: 16px;
+  color: #D4D5D6;
+}
+
+.popup-menu>ul>li:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.popup-menu>ul>li span {
+  display: inline-block;
+}
+
+.popup-menu>ul>li span:last-child {
+  float: right;
+}
+
+.popup-menu>ul>li span img {
+  max-width: 32px;
+  max-height: 28px
+}
+
+.popup-menu>ul>.active,
+.popup-menu>ul>.active:hover {
+  color: #111;
+  background: rgba(255, 255, 255, 1);
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+/* --- ITEM STYLES (make your own here) --- */
+
+.popup-menu ul .button {
+  font-weight: bold;
+}
+
+.popup-menu ul .green {
+  background: rgba(195, 227, 143, 0.2);
+}
+
+.popup-menu ul .green.active,
+.popup-menu ul .green.active:hover {
+  color: #fff;
+  background: rgba(115, 166, 40, 1);
+  background: linear-gradient(to right, rgba(115, 166, 40, 1) 0%, rgba(115, 166, 40, 0.8) 100%);
+}
+
+.popup-menu ul .red {
+  background: rgba(247, 64, 77, 0.2);
+}
+
+.popup-menu ul .red.active,
+.popup-menu ul .red.active:hover {
+  color: #fff;
+  background: rgba(242, 67, 67, 1);
+  background: linear-gradient(to right, rgba(242, 67, 67, 1) 0%, rgba(242, 67, 67, 0.8) 100%);
+}
+
+.popup-menu ul .gray {
+  background: rgba(212, 213, 214, 0.2);
+}
+
+.popup-menu ul .gray.active {
+  color: #111;
+  background: #fff;
+}
+
+/* --- SCROLL LINE STYLE --- */
+
+.popup-menu .scroll-line {
+  width: 100%;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.4) url('./img/popup-menu-arrows.png') center center no-repeat;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- HELP BLOCK STYLE --- */
+
+.popup-menu .help {
+  padding: 10px;
+  font-size: 16px;
+  height: auto;
+  color: #C4C4C4;
+  background: rgba(55, 59, 72, 0.9);
+}
+
+.popup-menu .help p {
+  font-size: 15px;
+  line-height: 19px
+}
+
+/* --- STATISTICS STYLE --- */
+
+.popup-menu .stats {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ccc
+}
+
+.popup-menu .stats div {
+  margin-bottom: 12px;
+}
+
+.popup-menu .stats div:last-child {
+  margin-bottom: 0
+}
+
+.popup-menu .stats .stage {
+  float: right;
+}
+
+/* --- STAGE BAR STYLE --- */
+
+.popup-menu .stage {
+  position: relative;
+  display: block;
+  width: 100px;
+  margin-top: 5px;
+}
+
+.popup-menu .stage .level {
+  margin-right: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  height: 8px;
+  float: left;
+}
+
+.popup-menu .stage .level:last-child {
+  margin-right: 0
+}
+
+.popup-menu .stage .value {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* --- SELECTION ITEM STYLE --- */
+
+.popup-menu .selection {
+  position: relative;
+}
+
+.popup-menu .selection li {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  display: none;
+  white-space: nowrap;
+}
+
+.popup-menu .selection>.active {
+  display: block;
+}
+
+.popup-menu .selection>.active:before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: -15px;
+  width: 10px;
+  height: 14px;
+  background-image: url('./img/popup-menu-arrows-r-l.png');
+  background-repeat: no-repeat;
+  background-position: 0 0
+}
+
+.popup-menu .selection>.active:after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: -15px;
+  width: 10px;
+  height: 14px;
+  background-image: url('./img/popup-menu-arrows-r-l.png');
+  background-repeat: no-repeat;
+  background-position: -30px 0
+}
+
+.popup-menu ul .active div span .selection .active:before {
+  background-position: -10px 0
+}
+
+.popup-menu ul .active div span .selection .active:after {
+  background-position: -20px 0
+}
+
+/* --- FULLWIDTH BAR STYLE --- */
+
+.popup-menu .slider {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.popup-menu .slider .title {
+  position: relative;
+}
+
+.popup-menu .slider .title span {
+  display: block;
+  color: #ccc;
+}
+
+.popup-menu .slider .title span:nth-child(1) {
+  float: left;
+}
+
+.popup-menu .slider .title span:nth-child(2) {
+  float: right;
+}
+
+.popup-menu .slider .title .name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* --- COLOR SELECTOR STYLE --- */
+
+.popup-menu .colors {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.popup-menu .colors .title {
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ccc;
+}
+
+.popup-menu .colors .title:before,
+.popup-menu .colors .title:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  background: url('./img/popup-menu-arrows-r-l.png');
+  background-repeat: no-repeat;
+}
+
+.popup-menu .colors .title:before {
+  left: 0;
+  width: 10px;
+  height: 14px;
+  background-position: 0 0;
+}
+
+.popup-menu .colors .title:after {
+  right: 0;
+  width: 10px;
+  height: 14px;
+  background-position: -30px 0
+}
+
+.popup-menu .colors ul li {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  float: left;
+}
+
+.popup-menu .colors ul li.active:before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 45px;
+  height: 6px;
+  background: #fff
+}
+
+/* --- XY GRID STYLE --- */
+
+.popup-menu .xygrid {
+  position: relative;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.popup-menu .xygrid .top,
+.popup-menu .xygrid .bottom,
+.popup-menu .xygrid .left,
+.popup-menu .xygrid .right {
+  text-align: center;
+  color: #ccc
+}
+
+.popup-menu .xygrid .top {
+  margin-bottom: 5px
+}
+
+.popup-menu .xygrid .bottom {
+  margin-top: 5px
+}
+
+.popup-menu .xygrid .r,
+.popup-menu .xygrid .l {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 100%;
+}
+
+.popup-menu .xygrid .r {
+  left: 0
+}
+
+.popup-menu .xygrid .l {
+  right: 0
+}
+
+.popup-menu .xygrid .left,
+.popup-menu .xygrid .right {
+  position: absolute;
+  top: 45%;
+}
+
+.popup-menu .xygrid .left {
+  right: 0;
+}
+
+.popup-menu .xygrid .right {
+  left: 0;
+}
+
+.popup-menu .xygrid .grid {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  margin: 0 auto;
+  padding: 0;
+  background: url('./img/xygrid.png') center center no-repeat;
+}
+
+.popup-menu .xygrid .grid .point {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+}

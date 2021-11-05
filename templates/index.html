@@ -1,0 +1,307 @@
+<html>
+
+<head>
+  <title>Система обновления</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Diamond">
+  <style>
+    body {
+      background-color: var(--bg-color);
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      color: var(--header-color);
+      transition: all .5s ease;
+    }
+
+    .logo {
+      margin-top: 30px;
+    }
+
+    .section {
+      padding: 30px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .section input {
+      margin: 10px 0;
+
+    }
+
+    .section button {
+      margin: 10px 0;
+      display: block;
+      width: 100%;
+    }
+
+    .logs button {
+      margin: 20px 0;
+    }
+
+    @media (max-width: 767.98px) {
+      h1 {
+        font-size: 6vw;
+      }
+
+      h2 {
+        font-size: 4vw;
+      }
+
+      #logs > div {
+        margin: 20px 0;
+      }
+    }
+
+    #is_auth {
+      color: var(--red-color);
+    }
+
+    .btn-primary {
+      border-color: var(--primary-color);
+      background-color: var(--primary-color);
+      transition: all .5s ease;
+    }
+
+    .btn-info {
+      border-color: var(--info-color);
+      background-color: var(--info-color);
+      transition: all .5s ease;
+    }
+
+    .btn-success {
+      border-color: var(--success-color);
+      background-color: var(--success-color);
+      transition: all .5s ease;
+    }
+
+    .btn-outline-danger {
+      color: var(--red-color);
+      border-color: var(--red-color);
+      transition: all .5s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #000000;
+        --header-color: #fff;
+        --red-color: #E74C3C;
+        --primary-color: #375a7f;
+        --info-color: #3498DB;
+        --success-color: #00bc8c;
+      }
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-color: #fcfcfc;
+        --header-color: #212529;
+        --red-color: #DC3545;
+        --primary-color: #007bff;
+        --info-color: #17a2b8;
+        --success-color: #28a745;
+      }
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center logo" onclick="change_mode()">Diamond RP GTA:V System</h1>
+    <div class="section reboot">
+      <div class="row justify-content-center">
+        <h2 class="text-center">Обновление репозитория проекта</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12">
+          <input class="form-control" type="text" id="login" placeholder="Логин">
+          <input class="form-control" type="password" id="password" placeholder="Пароль">
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <button type="button" class="btn btn-primary primary" onclick="update_server(false)">Обновить систему</button>
+          <button type="button" class="btn btn-primary" onclick="update_server(true)">Ребилд и перезапуск</button>
+        </div>
+      </div>
+    </div>
+    <div class="section ops">
+      <div class="row justify-content-center">
+        <h2 class="text-center">Операции над сервером</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-3 col-sm-12">
+          <button type="button" class="btn btn-info" onclick="reboot_update()">Перезагрузить апдейтер</button>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <button type="button" class="btn btn-info" onclick="reboot_server()">Перезагрузить сервер</button>
+        </div>
+        <!-- <div class="col-md-12"></div> -->
+        <div class="col-md-3 col-sm-12">
+          <button type="button" class="btn btn-info" onclick="build_server()">Забилдить сервер</button>
+        </div>
+      </div>
+    </div>
+    <div class="section auth">
+      <div class="row justify-content-center">
+        <h2 class="text-center">Авторизация</h2>
+      </div>
+      <div class="row justify-content-center">
+        <span class="text-center" id="is_auth"></span>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12">
+          <input class="form-control" type="password" id="secret" placeholder="Секретный ключ доступа">
+        </div>
+        <!-- <div class="col-md-12"></div> -->
+        <div class="col-md-4 col-sm-12">
+          <button type="button" class="btn btn-success" onclick="secret_login()"
+            id="secret_button">Авторизоваться</button>
+        </div>
+      </div>
+    </div>
+    <div class="section logs">
+      <div class="row justify-content-center">
+        <h2 class="text-center">Логи ваших действий</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-9 offset-sm-3">
+          <div id="logs"></div>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-outline-danger btn-sm" onclick="clearLogs()">Очистить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script>
+  let logged = false;
+  const log = (text, style = null) => {
+    let [s1, s2] = ["", ""];
+    if (style) {
+      s1 = `<font color="${style}">`;
+      s2 = `</font>`;
+    }
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let day_str = String(day);
+    let month_str = String(month);
+    if (day < 10) day_str = `0${day}`;
+    if (month < 10) month_str = `0${month}`;
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let hours_str = String(hours);
+    let minutes_str = String(minutes);
+    if (hours < 10) hours_str = `0${hours}`;
+    if (minutes < 10) minutes_str = `0${minutes}`;
+    const log_date = `[${day_str}.${month_str}.${year}] [${hours_str}:${minutes_str}]`;
+    $('#logs').prepend(`<div>${log_date} ${s1}${text}${s2}</div>`);
+    localStorage.setItem('systemLog', $('#logs').html());
+  }
+
+  const clearLogs = () => {
+    localStorage.removeItem('systemLog');
+    $('#logs').html('');
+  }
+
+  const update_server = (full = false) => {
+    if (!$('#login').val() || !$('#password').val()) return log("Не указан логин/пароль", "red");
+    if (!logged) return log("Ошибка. Ключ не указан", "red");
+    localStorage.setItem('login', $('#login').val());
+    localStorage.setItem('password', $('#password').val());
+    log("Запускаем процедуру, ожидайте выполнения", "orange");
+    fetch(
+      `/update?secret=${localStorage.getItem('secretKey')}&login=${$('#login').val()}&password=${$('#password').val()}&full=${full ? 'yes' : 'no'}`
+    ).then(res => res.text())
+    .then(text => {
+      log('Результат выполнения: ' + text);
+    }).catch(() => {
+      log('Результат выполнения: пустой ответ');
+    });
+  }
+
+  const reboot_update = () => {
+    if (!logged) return log("Ошибка. Ключ не указан", "red");
+    log("Команда отправлена", "green");
+    fetch(`/rebootupdate?secret=${localStorage.getItem('secretKey')}`).then(res => res.text()).then(text => {
+      log('Результат выполнения: ' + text);
+    }).catch(() => log("Перезапуск прошел успешно", "green"));
+  }
+
+  const reboot_server = () => {
+    if (!logged) return log("Ошибка. Ключ не указан", "red");
+    log("Команда отправлена", "green");
+    fetch(`/reboot?secret=${localStorage.getItem('secretKey')}`).then(res => res.text()).then(text => {
+      log('Результат выполнения: ' + text);
+    }).catch(() => log("Перезапуск прошел успешно", "green"));
+  }
+
+  const build_server = () => {
+    if (!logged) return log("Ошибка. Ключ не указан", "red");
+    log("Команда отправлена", "green");
+    fetch(`/rebuild?secret=${localStorage.getItem('secretKey')}`).then(res => res.text()).then(text => {
+      log('Результат выполнения: ' + text);
+    }).catch(() => log("Билд прошел успешно", "green"));
+  }
+
+  const secret_login = () => {
+    fetch(`/secretAuth?secret=${$('#secret').val()}`).then(res => {
+      res.text().then(text => {
+        if (text != 'ok') log("Ключ авторизации не верный", "red");
+        else {
+          localStorage.setItem('secretKey', $('#secret').val())
+          $('#secret').hide();
+          $('#secret_button').hide();
+          $('#is_auth').text('(Авторизирован)').css('color', '#3EB650');
+          logged = true;
+        }
+      });
+    }).catch(() => {
+      log("Сервер не функционирует", "red")
+    });
+  }
+  
+  let mode = false; // light
+  const change_mode = () => {
+    let root = document.documentElement;
+    mode = !mode;
+    if (mode) { // dark
+      root.style.setProperty('--bg-color','#000000');
+      root.style.setProperty('--header-color', '#ffffff');
+      root.style.setProperty('--red-color', '#E74C3C');
+      root.style.setProperty('--primary-color', '#375a7f');
+      root.style.setProperty('--info-color', '#3498DB');
+      root.style.setProperty('--success-color', '#00bc8c');
+    } else { // light
+      root.style.setProperty('--bg-color','#fcfcfc');
+      root.style.setProperty('--header-color', '#212529');
+      root.style.setProperty('--red-color', '#DC3545');
+      root.style.setProperty('--primary-color', '#007bff');
+      root.style.setProperty('--info-color', '#17a2b8');
+      root.style.setProperty('--success-color', '#28a745');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('systemLog')) $('#logs').html(localStorage.getItem('systemLog'));
+    if (localStorage.getItem('secretKey')) $('#secret').val(localStorage.getItem('secretKey'));
+    if (localStorage.getItem('secretKey')) {
+      secret_login();
+    } else {
+      $('#is_auth').text('(Не авторизирован)')
+    }
+    if (localStorage.getItem('login')) $('#login').val(localStorage.getItem('login'));
+    if (localStorage.getItem('password')) $('#password').val(localStorage.getItem('password'));
+  });
+</script>
+
+</html>

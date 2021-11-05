@@ -1,0 +1,176 @@
+.chestlog {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 75%;
+
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.73);
+
+    /* LSPD 1 */
+    .logo {
+        background-image: url("https://s3-alpha-sig.figma.com/img/12e4/5087/288ca24584e51a822d45ae8917bd03a2?Expires=1584316800&Signature=XWDBLz98WHJM0Ro8DOZfp7alZotfc0I8rbIogI9o~RVGhnf~rc7Jji4S~QZKqaFJfRxxRZ1tr0nmjWZFZshU39M77jEUEr7Lc8BOEIEmxoTU6MgUlsu0TqdGcgpxvS3boPHYnBgBFkNa1yaEnfPxEXJ6Gag97lmBwYwgDu~cFUKGd6jlvhGFJ56hvMKBBi4aR1pYFaccA-Xq9hNFlWt6wkhvliQxjpTfFjvOaLKZipOKx3sE7Okyj2249PrEyuSDx1rRhcz7eI4UGBVEtvGIwa3zFfSrTk~a3Dg~ZSVYfNwJo7OWK68q7bAKwtR8nNmxj4XVMk8ZTIi4HKZMhFPj~g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 90px;
+        height: 90px;
+        top: 15px;
+        left: 25px;
+        position: absolute;
+    }
+
+    /* LSPD */
+    .name {
+        font-family: Rakkas;
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: #ffffff;
+        vertical-align: middle;
+        justify-content: flex-start;
+        transform: translate(0px, 0px);
+        /* line-height: 91.4063px; */
+        height: 93px;
+        left: 130px;
+        top: 0px;
+        position: absolute;
+
+    }
+
+    /* Записи склада */
+    .desc {
+        font-family: Rakkas;
+        font-size: 40px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: #ffffff;
+        vertical-align: middle;
+        justify-content: flex-start;
+        transform: translate(0px, 0px);
+        line-height: 55.0781px;
+        height: 56px;
+        left: 130px;
+        top: 60px;
+        position: absolute;
+        text-align: left;
+    }
+
+
+
+    .buttons {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 50px;
+
+        /* Rectangle 1 */
+        .button {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            font-family: Rakkas;
+            font-size: 29px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            color: #ffffff;
+            vertical-align: middle;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .take {
+            background: #25688e;
+            transition: background-color .3s ease-in-out;
+
+            &:hover {
+                background: #3392c9;
+            }
+        }
+
+        .give {
+            background: rgb(31, 116, 10);
+            transition: background-color .3s ease-in-out;
+
+            &:hover {
+                background: rgb(54, 209, 15);
+            }
+            left: 50%;
+        }
+        .off {
+            text-decoration: line-through;
+        }
+
+    }
+
+
+
+    /* Rectangle 3 */
+    .logListBlock {
+        position: absolute;
+        background: rgba(34, 34, 34, 0.69);
+        border-radius: 15px 0px 0px 15px;
+        left: 5%;
+        width: 90%;
+        top: 150px;
+        height: calc(100% - 210px);
+        padding: 13px;
+        overflow: auto;
+        .doBlock {
+            font-family: Rakkas;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0px;
+            color: rgb(255, 255, 255);
+            vertical-align: middle;
+            justify-content: flex-start;
+            transform: translate(0px, 0px);
+            line-height: 36.3281px;
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            width: 100%;
+            
+        }
+    }
+
+    /* Line 1 */
+    #n3_9 {
+        left: 65px;
+        width: 859.001px;
+        top: 303px;
+        height: 0px;
+    }
+
+    
+
+
+    /* X */
+    #n3_75 {
+        font-family: Rakkas;
+        font-size: 49px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        color: rgb(255, 255, 255);
+        vertical-align: middle;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        line-height: 58px;
+
+        background: #7e1212;
+        transition: font-size .8s ease-in-out;
+        transition: background-color .3s ease-in-out;
+        &:hover {
+            background: #d31b1b;
+            font-size: 55px;
+        }
+        border-radius: 10px;
+        left: calc(100% - 70px);
+        width: 53px;
+        top: 15px;
+        height: 53px;
+        position: absolute;
+    }
+}

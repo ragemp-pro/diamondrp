@@ -1,0 +1,166 @@
+.helpMenuBlock {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    background: rgba(0, 0, 0, 0.637);
+
+    .content {
+        height: 100%;
+        width: 100%;
+
+
+        .col-md-6 {
+            padding-right: 0px;
+            padding-left: 0px;
+            height: 100%;
+
+            .headerButtons {
+                height: 35px;
+                width: 100%;
+
+                .col-sm-7,
+                .col-sm-5,
+                .col-sm-8,
+                .col-sm-4 {
+                   padding-right: 0px;
+                   padding-left: 0px;
+                }
+
+                button {
+                    border-radius: 0px;
+                }
+                input {
+                    border-radius: 0px;
+                    background: #F0F0F0;
+                }
+                input::placeholder {
+                    color: #333333;
+                }
+
+                background: rgba(20, 19, 19, 0.815);
+            }
+
+            .newTicketBlock {
+                transition: all 0.2s ease-in-out;
+                background: rgba(46, 46, 46, 0.938);
+                padding-top: 20px;
+                padding-bottom: 20px;
+                text-align: center;
+
+                button {
+                    border-radius: 0px;
+                }
+
+                .form-group {
+                    margin: 20px;
+
+                    .desc {
+                        color: white;
+                        text-align: left !important;
+                    }
+                }
+            }
+
+            .ticketList-title {
+                
+                height: 35px;
+                padding-top: 3px;
+                text-align: center;
+                color: rgb(211, 209, 209);
+                font-size: 20px;
+                background: rgba(17, 17, 17, 0.877);
+            }
+
+            .ticketList {
+                transition: height 0.5s ease-in-out;
+                // margin-top: 20px;
+                margin-bottom: 20px;
+                overflow: auto;                
+            }
+        }
+
+        .bl {
+            border-right: 1px solid black;
+        }
+
+        .ticketItem {
+            cursor: pointer;
+            background: rgba(29, 29, 29, 0.938);
+            padding: 15px;
+            color: rgb(173, 173, 173);
+
+            &.selecteds {
+                background: rgba(36, 29, 124, 0.938);
+                border: none;
+            }
+
+            .title {
+                span {
+                    color: rgb(126, 126, 126);
+                    font-size: 10px;
+                }
+
+                .new {
+                    color: red;
+                }
+            }
+
+            .desc {
+                color: white;
+            }
+
+            .footer {
+                margin-top: 10px;
+                color: rgb(126, 126, 126);
+            }
+        }
+
+        .ticketData {
+            overflow: auto;
+            height: 744px;
+            // margin-top: 10px;
+            .ticketItem {
+                background: rgba(46, 46, 46, 0.938);
+            }
+            .ticketItem:first-child{
+                text-align:center;
+                background: rgba(15, 15, 15, 0.938);
+            }
+            .ticketItem:nth-child(2){
+                background: rgba(29, 29, 29, 0.938);
+            }
+            .send {
+                height: 105px;
+                button {
+                    border-radius: 0px;
+                }
+
+                textarea {
+                    height: 73px;
+                    border-radius: 0px;
+                    background: #F0F0F0;
+                }
+
+                textarea::placeholder {
+                    color: #333333;
+                }
+            }
+            .footerEl {
+                margin-top: 10px;
+                text-align: center;
+            }
+            .adminControl {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                background: rgba(15, 15, 15, 0.637);
+                button {
+                    border-radius: 0px;
+                }
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,97 @@
+.autosale {
+    @height: 700px;
+    @width: 550px;
+    background-color: rgb(42, 44, 51);
+    width: @width;
+    height: @height;
+    position: absolute;
+    bottom: calc(50% - (@height/2));
+    left: calc(50% - (@width/2));
+    border-radius: 20px 20px 0 0;
+    color: rgb(243, 230, 230);
+    .autosale-header {
+        height: calc(@height / 12);
+        border-radius: 20px 20px 0 0;
+        background-color: rgb(25, 27, 34);
+        font-size: 2em;
+        font-weight: 800;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 5px;
+    }
+    .autosale-car-image {
+        img {
+            width: 100%;
+        }
+    }
+    .autosale-info,
+    .autosale-info-one {
+        font-size: 15px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        margin: 5px 10px 5px 15px;
+        .autosale-veh-info-item {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            span {
+                color: grey;
+                &:last-child {
+                    color: white;
+                    margin-left: 5px;
+                }
+                img {
+                    width: 25px;
+                }
+            }
+        }
+    }
+    .autosale-info-one {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .autosale-part-title {
+        // margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 900;
+        background-color: rgb(25, 27, 34);
+        padding: 5px 0 5px 0;
+    }
+    .autosale-spec {
+        display: grid;
+        margin: 5px;
+        grid-template-columns: 1fr 1fr;
+        &>span {
+            text-align:center;
+            display: inline;
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50px;
+            }
+            font-size: 15px;
+            font-weight: 700;
+            color: #9fa1a7;
+        }
+
+    }
+
+    .autosale-bottom {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+    }
+    .autosale-buttons {
+        
+        display: grid;
+        grid-template-columns: 0.7fr 1.3fr 1fr;
+    }
+    .autosale-buttons, .autosale-bottom {
+        button,
+        input {
+            border-radius: 0px;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+	// out: ../css/police-bage.css
+	@dark: #2e4060;
+
+	* {
+		outline: 0;
+	}
+
+	.anim {
+		transition: all 0.23232323s ease-in-out;
+		-webkit-transition: all 0.23232323s ease-in-out;
+		-moz-transition: all 0.23232323s ease-in-out;
+	}
+
+
+	.police-bage-wrapper {
+		padding-left: 560px;
+		padding-top: 60px;
+		padding-bottom: 60px;
+		position: relative;
+		background: url(../../../assets/images/bg_police_bage.png) no-repeat;
+		width: 1009px;
+		min-width: 1009px;
+		height: 466px;
+		border-radius: 30px;
+		overflow: hidden;
+		box-shadow: 0.332px 18.997px 76px 0px rgba(0, 0, 0, 0.34), inset 0px 0px 0px 3px rgba(255, 255, 255, 0.15), inset 0px 0px 79px 0px rgba(0, 0, 0, 0.15);
+
+		&.sheriff {
+			background: url(../../../assets/images/bg_sheriff_bage.png) no-repeat;
+		}
+
+		&.fbi {
+				background: url(../../../assets/images/bg_fbi_bage.png) no-repeat;
+		}
+
+		.police-bage-right {
+			p {
+				font-size: 20px;
+				font-weight: 700;
+				color: #1e282c;
+
+				small {
+					opacity: .4;
+				}
+
+				strong {
+					font-size: 34px;
+				}
+			}
+		}
+
+		span {
+			position: absolute;
+			display: inline-block;
+			font-size: 14px;
+			letter-spacing: 3px;
+			font-weight: 400;
+			color: #1e282c;
+			bottom: 60px;
+		}
+	}
+
+@media(max-width:1300px) {
+	.police-bage-wrapper {
+		transform: scale(.6,.6);
+	}
+}

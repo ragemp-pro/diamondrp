@@ -1,0 +1,47 @@
+.car-info {
+    font-size: 20px;
+}
+
+.cars-list {
+    overflow: auto;
+    height: 800px;
+}
+
+.card-car {
+    position: relative;
+    margin: 0.5rem 0 1rem 0;
+    background-color: #fff;
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s,
+    -webkit-box-shadow .25s;
+    border-radius: 8px;
+}
+
+.card-car .card-image {
+    position: relative;
+    img {
+        height: 187px;
+        object-fit: cover;
+        // border-radius: 8px;
+    }
+}
+.card-title {
+    background-color: #f3f3f3c7;
+    display: block;
+    color: rgb(37, 37, 37);
+    padding: 8px;
+    padding-left: 24px;
+    font-size: 16px;
+    border-radius: 0 0 8px 8px;
+    z-index: 99999;
+}
+.card-car .card-image .card-title {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    // padding: 24px;
+}

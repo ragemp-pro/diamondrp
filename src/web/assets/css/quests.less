@@ -1,0 +1,60 @@
+	// out: ../css/quests.css
+	@dark: #2e4060;
+
+	body {
+	    // background: url(../images/bg-delete.jpg) no-repeat;
+	    background-size: 100% 100%;
+	}
+
+	.posrev {
+	    position: relative;
+	}
+
+
+	.w100 {
+	    width: 100%;
+	}
+
+	.anim {
+	    transition: all 0.23232323s ease-in-out;
+	    -webkit-transition: all 0.23232323s ease-in-out;
+	    -moz-transition: all 0.23232323s ease-in-out;
+	}
+
+.info-content {
+    h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+    p.text-info {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    ul {
+        li {
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding-left: 30px;
+            &:after {
+                content: '';
+                left: 0;
+                top: 6px;
+                position: absolute;
+                width: 14px;
+                height: 4px;
+                background: #40b11e;
+            }
+            &:before {
+                content: '';
+                left: 5px;
+                top: 1px;
+                position: absolute;
+                width: 4px;
+                height: 14px;
+                background: #40b11e;
+            }
+        }
+    }
+}

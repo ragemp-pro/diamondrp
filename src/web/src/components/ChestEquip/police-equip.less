@@ -1,0 +1,195 @@
+	// out: ../css/police-equip.css
+	@dark: #2e4060;
+
+	body {
+		// background: url(../images/bg-delete.jpg) no-repeat;
+		background-size: 100% 100%;
+	}
+
+	.posrev {
+		position: relative;
+	}
+
+
+	.w100 {
+		width: 100%;
+	}
+
+	.anim {
+		transition: all 0.23232323s ease-in-out;
+		-webkit-transition: all 0.23232323s ease-in-out;
+		-moz-transition: all 0.23232323s ease-in-out;
+	}
+
+	.eqp-but-close {
+		border-radius: 6px;
+		background-color: rgba(255, 255, 255, 0.1);
+		text-align: center;
+		width: 30%;
+		height: 30px;
+		padding: 7px;
+		margin-top: 15px;
+		border: 0;
+		box-shadow: 0;
+		color: rgb(102, 102, 102);
+		background-color: rgba(255, 255, 255, 0.5);
+		font-size: 15px;
+		cursor: pointer;
+		.anim;
+		&:hover {
+			height: 35px;
+			font-size: 20px;
+		}
+	}
+
+
+
+	.shadow-overlay-top {
+		position: fixed;
+		left: 0;
+		top: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		z-index: 40;
+		background-image: linear-gradient(900deg, #191e2c, rgba(25, 30, 44, 0));
+		opacity: 1;
+
+	}
+
+	.police-equip-wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+
+	.page-title {
+		text-align: center;
+		color: #fff;
+		margin-bottom: 40px;
+		font-size: 36px;
+	}
+
+	.police-equip-grid {
+		display: grid;
+		grid-template-columns: repeat(6, 98px);
+		grid-gap: 24px;
+		position: relative;
+		max-height: 340px;
+		padding: 20px;
+		overflow: auto;
+	}
+
+	.eqp-item {
+		.eqp-box {
+			cursor: pointer;
+			width: 98px;
+			height: 98px;
+			background-color: rgba(237, 244, 248, 0.102);
+			box-shadow: 0px 0px 14px 0px rgba(99, 161, 183, 0), inset 0px 0px 0px 2px rgba(223, 233, 239, 0.18), inset 0px 0px 24px 0px rgba(0, 0, 0, 0.18);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			.anim;
+
+			span {
+				position: absolute;
+				right: 3px;
+				bottom: 3px;
+				color: #fff;
+				font-size: 13px;
+				text-align: right;
+			}
+
+			& > img {
+				max-width: 80px;
+				max-height: 80px;
+			}
+
+			.eqp-item-default img {
+				opacity: 0;
+			}
+		}
+
+		.eqp-but {
+			border-radius: 6px;
+			background-color: rgba(255, 255, 255, 0.1);
+			text-align: center;
+			width: 100%;
+			padding: 7px;
+			margin-top: 5px;
+			border: 0;
+			box-shadow: 0;
+			color: #fff;
+			font-size: 10px;
+			cursor: pointer;
+			.anim;
+		}
+
+		&:hover {
+			.eqp-but {
+				background: #63a8b8;
+			}
+
+			.eqp-box {
+				background-color: rgba(237, 244, 248, 0.102);
+				box-shadow: 0px 0px 14px 0px rgba(99, 161, 183, 0.7), inset 0px 0px 0px 2px rgba(109, 193, 214, 0.7), inset 0px 0px 24px 0px rgba(91, 241, 255, 0.44);
+			}
+		}
+
+		&.none {
+			.eqp-box {
+				background-color: rgba(0, 0, 0, 0.102);
+				box-shadow: inset 0px 0px 0px 2px rgba(223, 233, 239, 0.18), inset 0px 0px 24px 0px rgba(0, 0, 0, 0.18);
+				cursor: default;
+			}
+			.eqp-but {
+				background: rgba(0, 0, 0, 0.1);
+				cursor: default;
+			}
+		}
+		&.nohave {
+			.eqp-box {
+				background-color: rgba(237, 244, 248, 0.102);
+				box-shadow: 0px 0px 14px 0px rgba(99, 161, 183, 0), inset 0px 0px 0px 2px rgba(223, 233, 239, 0.18), inset 0px 0px 24px 0px rgba(0, 0, 0, 0.18);
+				cursor: default;
+			}
+			.eqp-but {
+				background-color: rgba(255, 255, 255, 0.1);
+				cursor: default;
+			}
+		}
+	}
+
+
+
+
+	.eqp-item-default {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		max-width: 80px;
+		max-height: 80px;
+		opacity: .4;
+		top: 50%;
+		transform: translate(-50%, -50%);
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+	}
+
+	.nohave .eqp-box .eqp-item-default {
+		img {
+			opacity: 1;
+		}
+
+		& + img {
+			opacity: 0;
+		}
+	}

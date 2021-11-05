@@ -1,0 +1,9 @@
+*.rpf filter=lfs diff=lfs merge=lfs -text
+server filter=lfs diff=lfs merge=lfs -text
+ragemp-server filter=lfs diff=lfs merge=lfs -text
+server.exe filter=lfs diff=lfs merge=lfs -text
+*.dat filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+node.dll filter=lfs diff=lfs merge=lfs -text
+bridge/* filter=lfs diff=lfs merge=lfs -text
+plugins/* filter=lfs diff=lfs merge=lfs -text

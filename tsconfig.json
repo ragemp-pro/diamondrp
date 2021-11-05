@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+      "lib": ["es5", "es6", "esnext", "dom"],
+      "module": "es2015",
+      "moduleResolution": "node",
+      "target": "esnext",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "removeComments": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "preserveConstEnums": true,
+      "noImplicitAny": true,
+      "sourceMap": false,
+      "baseUrl": "./src",
+      "paths": {
+        //"~*": ["./*"],
+        /*"@mods/*": ["src/server/mods/*"],
+        "@factions/*": ["src/server/factions/*"],
+        "@business/*": ["src/server/business/*"],
+        "@core/*": ["src/server/core/*"],
+        "@houses/*": ["src/server/houses/*"],
+        "@config/*": ["src/server/config/*"],
+        "@api": ["src/server/plugins/api.js"],*/
+        "@rageS": ["declaration/server.ts"],
+        "components/*": ["web/src/components/*"],
+        "assets/*": ["web/assets/*"],
+        "actions/*": ["web/src/actions/*"],
+        "api": ["web/src/api"]
+      },
+      "typeRoots": ["node_modules/@types"],
+      "jsx": "react"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "packages", "client_packages"]
+  }
