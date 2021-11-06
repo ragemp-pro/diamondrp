@@ -7,6 +7,7 @@
 | ------ | ------ | ------ |
 | DLCpacks | https://cutt.ly/zR5hnGk (GD) | 'nJjXtYmRhFcBdFz;tYoByFVjZ!2020
 | Databases | https://cutt.ly/rR5koQX (GD) | 'NsCfVfZKexIfZRCdjtb!d20Ujle!2020
+| CLEAR DATABASE | https://cutt.ly/aR6hEDX (GD) | 'NsCfVfZKexIfZRCdjtb!d20Ujle!2020
 
 # Installation
 Let's break it down so it's clear to everyone.
