@@ -29,6 +29,7 @@
     "cli-color": "^1.4.0",
     "console-menu": "^0.1.0",
     "cors": "^2.8.5",
+    "deasync": "^0.1.23",
     "decode-html": "^2.0.0",
     "discord.js": "^11.5.1",
     "dompurify": "^2.0.8",
