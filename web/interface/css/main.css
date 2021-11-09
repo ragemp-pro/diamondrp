@@ -1,0 +1,374 @@
+@font-face {
+	font-family: 'Century Gothic';
+	src: url('../fonts/CenturyGothic-Italic.eot');
+	src: local('Century Gothic Italic'), local('CenturyGothic-Italic'),
+		url('../fonts/CenturyGothic-Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/CenturyGothic-Italic.woff') format('woff'),
+		url('../fonts/CenturyGothic-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Century Gothic';
+	src: url('../fonts/CenturyGothic.eot');
+	src: local('Century Gothic'), local('CenturyGothic'),
+		url('../fonts/CenturyGothic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/CenturyGothic.woff') format('woff'),
+		url('../fonts/CenturyGothic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Century Gothic';
+	src: url('../fonts/CenturyGothic-Bold.eot');
+	src: local('Century Gothic Bold'), local('CenturyGothic-Bold'),
+		url('../fonts/CenturyGothic-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/CenturyGothic-Bold.woff') format('woff'),
+		url('../fonts/CenturyGothic-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Century Gothic';
+	src: url('../fonts/CenturyGothic-BoldItalic.eot');
+	src: local('Century Gothic Bold Italic'), local('CenturyGothic-BoldItalic'),
+		url('../fonts/CenturyGothic-BoldItalic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/CenturyGothic-BoldItalic.woff') format('woff'),
+		url('../fonts/CenturyGothic-BoldItalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+* {
+	padding: 0;
+  	margin: 0;
+  	outline: 0;
+	text-decoration: none;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a:focus, a:hover {
+    text-decoration: none;
+
+}
+html,body {
+	height: 100%;
+  	width: 100%;
+}
+body {
+	user-select: none;
+	height: 100%;
+	width: 100%;
+	font-family: "Century Gothic",serif;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#micro_disabled {
+	bottom: 135px;
+	left: calc(30vh + 8px);
+}
+
+.micro {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 30vh;
+	bottom: 130px;
+}
+
+.gps_traker {
+	position: absolute;
+	left: 30vh;
+	bottom: 26px;
+}
+.gps_traker li {
+	font-size: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	padding-left: 4px;
+	height: 38px;
+	background: rgb(0,0,0);
+	background: -moz-linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+	background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+}
+.gps_traker li:nth-child(1) {
+	width: 323px;
+	margin-bottom: 5px;
+}
+.gps_traker li:nth-child(2) {
+	padding-right: 136px;
+}
+.logo {
+	position: absolute;
+	right: 21px;
+	top: 40px;
+	width: 250px;
+}
+.state_user {
+	position: absolute;
+	width: 251px;
+	height: 65px;
+	top: 96px;
+	right: 21px;
+	background: rgb(0,0,0);
+	background: -moz-linear-gradient(270deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(270deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+	background: linear-gradient(270deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%);
+	border-right: 2px solid #2362e0;
+	color: #2362e0;
+}
+.mafia_war {
+	color: #fff;
+	background: rgba(0,0,0,0.45);
+	padding: 10px;
+	position: absolute;
+	right: 21px;
+	bottom: 117px;
+	width: 270px;
+	line-height: 25px;
+	text-align: center;
+}
+.gang_war {
+	color: #fff;
+	background: rgba(0,0,0,0.45);
+	padding: 10px;
+	position: absolute;
+	right: 21px;
+	bottom: 117px;
+	width: 270px;
+	line-height: 25px;
+	text-align: center;
+}
+.info {
+	color: #fff;
+	background: rgba(0,0,0,0.45);
+	padding: 10px;
+	position: absolute;
+	right: 50px;
+	bottom: 50px;
+	top: 50px;
+	left: 50px;
+	line-height: 25px;
+	text-align: center;
+}
+.state_user li {
+	height: calc( 65px / 2);
+	width: 100%;
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+}
+.state_user li .icon {
+	width: 60px;
+	display: flex;
+	justify-content: flex-end;
+	
+}
+.state_user li .value {
+	color: #fff;
+	width: 100%;
+	margin-right: 10px;
+	margin-left: 10px;
+	font-size: 14px;
+	display: flex;
+	justify-content: flex-end;
+}
+.state_user li:nth-child(1) .value {
+	font-size: 24px;
+}
+.state_user li:nth-child(3) .value {
+	font-size: 16px;
+}
+.user_panel {
+	width: 432px;
+	height: 89px;
+	position: absolute;
+	bottom: 26px;
+	right: 20px;
+}
+.user_panel li {
+	height: 43px;
+	margin-bottom: 1px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.user_panel li .sm_block,
+.user_panel li .md_block,
+.user_panel li .lg_block{
+	color: #fff;
+	background: rgba(0,0,0,0.45);
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+.user_panel li .sm_block {
+	width: 80px;
+	justify-content: center;
+}
+.user_panel li .md_block {
+	width: 128px;
+}
+.user_panel li .lg_block {
+	width: 218px;
+	
+}
+.user_panel li:nth-child(2) {
+	margin: 0;
+}
+.user_panel li:nth-child(3) {
+	margin: 0;
+}
+.user_panel li:nth-child(1) .sm_block {
+	justify-content: center;
+	font-weight: bold;
+	font-size: 34px;
+}
+.user_panel li:nth-child(2) .sm_block {
+	justify-content: center;
+	font-size: 24px;
+}
+.user_panel li:nth-child(3) .sm_block {
+	justify-content: center;
+	font-size: 24px;
+}
+.user_panel li:nth-child(1) .md_block {
+	justify-content: center;
+	
+	font-size: 36px;
+}
+.user_panel li:nth-child(2) .md_block {
+	justify-content: center;
+
+	font-size: 18px;
+}
+.user_panel li:nth-child(3) .md_block {
+	justify-content: center;
+
+	font-size: 18px;
+}
+.user_panel li:nth-child(1) .lg_block {
+	padding-left: 16px;
+	text-transform: uppercase;
+	font-size: 24px;
+}
+.user_panel li:nth-child(2) .lg_block {
+	padding-left: 22px;
+	text-transform: uppercase;
+	font-size: 24px;
+}
+.user_panel li:nth-child(3) .lg_block {
+	padding-left: 22px;
+	text-transform: uppercase;
+	font-size: 24px;
+}
+.user_panel li:nth-child(1) .lg_block img{
+	
+	margin-right: 28px;
+	
+}
+.user_panel li:nth-child(2) .lg_block img{
+	margin-right: 35px;
+}
+.user_panel li:nth-child(3) .lg_block img{
+	margin-right: 35px;
+}
+
+@media only screen and (max-width: 1600px) {
+	.micro{
+		bottom: 105px!important
+	} 
+	#micro_enabled {
+		bottom: 100px!important;
+		left: 313px!important;
+	}
+	#micro_disabled {
+		bottom: 105px!important;
+		left: 321px!important;
+	}
+	.md_block {
+		font-size: 26px !important;
+	}
+
+	.user_panel li .md_block {
+		width: 98px !important;
+	}
+	
+	.md_block {
+		font-size: 26px !important;
+	}
+	
+	.sm_block {
+		font-size: 24px !important;
+		
+	}
+	
+	.user_panel li .sm_block {
+		width: 60px !important;
+	}
+	
+	.lg_block {
+		font-size: 20px !important;
+	}
+	
+	.user_panel li .lg_block {
+		width: 188px !important;
+	}
+	
+	.user_panel li {
+		height: 40px !important;
+	}
+	
+	.user_panel li:nth-child(2) .md_block {
+		font-size: 15px !important;
+	}
+	
+	.user_panel {
+		width: 352px !important;
+		height: 81px !important;
+	}
+	
+	.gps_traker li {
+		font-size: 16px !important;
+		height: 28px !important;
+	}
+}
+@media only screen and (max-width: 1366px) {
+	.micro{
+		bottom: 95px!important;
+		left: 315px!important;
+	} 
+	#micro_disabled {
+		bottom: 100px!important;
+		left: 323px!important;
+	}
+	#micro_enabled {
+		bottom: 95px!important;
+		left: 315px!important;
+	}
+	.md_block {
+		font-size: 24px !important;
+	}
+
+	.user_panel li .md_block {
+		width: 98px !important;
+	}
+	
+	.md_block {
+		font-size: 24px !important;
+	}
+
+	.gps_traker li {
+		font-size: 14px !important;
+		height: 26px !important;
+	}
+}

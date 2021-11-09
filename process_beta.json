@@ -1,9 +1,0 @@
-{
-  "apps" : [
-    {
-      "name"        : "ragemp-1.1",
-      "script"      : "ragemp-server",
-      "log_date_format" : "HH:mm:ss.SSS"
-    }
-  ]
-}

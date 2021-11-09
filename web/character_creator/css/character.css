@@ -1,0 +1,241 @@
+﻿@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto.woff') format('woff'),
+    url('../fonts/Roboto.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    text-decoration: none;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a:focus, a:hover {
+    text-decoration: none;
+
+}
+html,body {
+    height: 100%;
+    width: 100%;
+}
+body {
+	user-select: none;
+    color: white;
+    display: flex;
+    font-family: 'Roboto';
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    letter-spacing: 0.5px
+}
+
+.characterEditor {
+    right: 0;
+    width: 42vh;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    color: white;
+}
+
+.characterEditor h1 {
+    background: rgba(0,49,102,1);
+    background: -moz-linear-gradient(-45deg, rgba(0,49,102,1) 0%, rgba(73,155,234,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(0,49,102,1)), color-stop(100%, rgba(73,155,234,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(0,49,102,1) 0%, rgba(73,155,234,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(0,49,102,1) 0%, rgba(73,155,234,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(0,49,102,1) 0%, rgba(73,155,234,1) 100%);
+    background: linear-gradient(135deg, rgba(0,49,102,1) 0%, rgba(73,155,234,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003166', endColorstr='#499bea', GradientType=1 );
+    color: white;
+    padding: 20px;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 400;
+    width: 100%;
+}
+
+.characterEditor h3 {
+    margin: 8px;
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+}
+
+.characterEditor .button {
+    background: #4a96f3;
+    border-radius: 2px;
+    color: white;
+    padding: 14px;
+    margin: 20px;
+    transition: 0.3s;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.characterEditor .button:hover {
+    background: #7db1f1;
+}
+
+.camera .button {
+    background: #4a96f3;
+    border-radius: 2px;
+    color: white;
+    padding: 14px;
+    margin: 5px;
+    margin-top: 25px;
+    transition: 0.3s;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.camera .button:hover {
+    background: #7db1f1;
+}
+
+.characterEditor .slider {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.block {
+    padding: 8px;
+    color: white;
+}
+
+.changeGender{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.changeGender .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 136px;
+    height: 35px;
+    border-radius: 2px;
+    font-weight: 400;
+    transition: 0.3s;
+    background-color: #2f2f2f;
+    color: #fff;
+    letter-spacing: .5px;
+}
+.changeGender input{
+    display: none;
+}
+.changeGender .active{
+    background-color: #4a96f3;
+    color: #fff;
+}
+.appearance {
+    margin-top: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.appearance div {
+    padding: 8px;
+    width: 70%;
+    text-align: center;
+    background-color: #2f2f2f;
+    color: white;
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 2px;
+}
+.appearance .left {
+    color: white;
+    border: 10px solid transparent;
+    border-right: 20px solid #2f2f2f;
+    display: inline-block;
+}
+
+.appearance .right {
+    color: white;
+    border: 10px solid transparent;
+    border-left: 20px solid #2f2f2f;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.appearance input:hover, .appearance .right:hover{
+    border-left: 20px solid #808080;
+    cursor: pointer;
+}
+.appearance input:hover, .appearance .left:hover {
+    border-right: 20px solid #808080;
+    cursor: pointer;
+}
+.appearance input:active, .appearance .right:active {
+    border: 10px solid transparent;
+    border-left: 20px solid #808080;
+    cursor: pointer;
+}
+.appearance input:active, .appearance .left:active {
+    border: 10px solid transparent;
+    border-right: 20px solid #808080;
+    cursor: pointer;
+}
+/* #faceMale{
+    display: none;
+}
+#faceMale.active{
+    display: flex;
+}
+#faceFemale{
+    display: none;
+}
+#faceFemale.active{
+    display: flex;
+} */
+.camera{
+    position: absolute;
+    bottom: 0;
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    border-top-right-radius: 5px;
+    color: white;
+}
+.camera p{
+    font-size: 16px;
+    margin: 10px;
+}
+.camera output{
+    margin-top: 10px;
+    display: block;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #484848;
+}
+::-webkit-scrollbar-thumb {
+  background: #2196f3;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Interface</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div id="hud">
+		<div style="display: none;">
+			<audio loop autoplay id="radioSh">
+				<source src="http://edf.byappi.com/radio_sh3.wav">
+			</audio>
+		</div>
+	</div>
+
+	<script>
+
+		// var sh3 = document.getElementById("radioSh");
+		// sh3.volume = 0.0;
+
+		// function eventSend(data) {
+		// 	//mp.trigger('client:console', data.type);
+
+		// 	if(data.type == 'blackoutStart') {
+		// 		var obj = document.createElement('audio');
+		// 		obj.volume = 0.3;
+		// 		obj.src = "snd/start.wav";
+		// 		obj.play();
+		// 	}
+		// 	if(data.type == 'blackoutStop') {
+		// 		var obj = document.createElement('audio');
+		// 		obj.volume = 0.3;
+		// 		obj.src = "snd/stop.wav";
+		// 		obj.play();
+		// 	}
+		// 	if(data.type == 'radioPeer') {
+		// 		try {
+		// 			var obj = document.createElement('audio');
+		// 			obj.volume = 0.1;
+		// 			obj.src = "snd/radio_peer.wav";
+		// 			obj.play();
+		// 		}
+		// 		catch (e) {
+		// 		}
+		// 	}
+		// 	if(data.type == 'radioOff') {
+		// 		try {
+		// 			var obj = document.createElement('audio');
+		// 			obj.volume = 0.1;
+		// 			obj.src = "snd/radio_off.wav";
+		// 			obj.play();
+		// 		}
+		// 		catch (e) {
+					
+		// 		}
+		// 	}
+		// 	if(data.type == 'radioOn') {
+		// 		try {
+		// 			var obj = document.createElement('audio');
+		// 			obj.volume = 0.1;
+		// 			obj.src = "snd/radio_on.wav";
+		// 			obj.play();
+		// 		}
+		// 		catch (e) {
+					
+		// 		}
+		// 	}
+		// 	if(data.type == 'radioShStart') {
+		// 		try {
+		// 			var sh1 = document.getElementById("radioSh");
+		// 			sh1.volume = 0.01 + data.shVol;
+		// 			sh1.play();
+		// 		}
+		// 		catch (e) {
+					
+		// 		}
+		// 	}
+		// 	if(data.type == 'radioShStop') {
+		// 		try {
+		// 			var sh2 = document.getElementById("radioSh");
+		// 			sh2.volume = 0.0;
+		// 			sh2.pause();
+		// 		}
+		// 		catch (e) {
+					
+		// 		}
+		// 	}
+
+			// if (data.type == 'updateMafiaInfo') {
+			// 	try {
+			// 		document.getElementById('warCounter').innerHTML = data.timerCounter;
+			// 		document.getElementById('warLcnCounter').innerHTML = data.lcn;
+			// 		document.getElementById('warYkCounter').innerHTML = data.trd;
+			// 		document.getElementById('warRmCounter').innerHTML = data.rm;
+			// 		document.getElementById('warLaCounter').innerHTML = data.lme;
+			// 	}
+			// 	catch (e) {
+					
+			// 	}
+			// }
+			// if (data.type == 'hideMafiaInfo') {
+			// 	document.getElementById('mafiaWar').style.display = 'none';
+			// }
+			// if (data.type == 'showMafiaInfo') {
+			// 	document.getElementById('mafiaWar').style.display = 'block';
+			// }
+
+			// if (data.type == 'updateGangInfo') {
+			// 	try {
+			// 		document.getElementById('gwarCounter').innerHTML = data.timerCounter;
+			// 		document.getElementById('gangWarTop1').innerHTML = data.top1;
+			// 		document.getElementById('gangWarTop2').innerHTML = data.top2;
+			// 	}
+			// 	catch (e) {
+
+			// 	}
+			// }
+			// if (data.type == 'hideGangInfo') {
+			// 	document.getElementById('gangWar').style.display = 'none';
+			// }
+			// if (data.type == 'showGangInfo') {
+			// 	document.getElementById('gangWar').style.display = 'block';
+			// }
+
+	</script>
+</body>
+</html>

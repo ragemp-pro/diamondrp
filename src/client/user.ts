@@ -630,14 +630,16 @@ const user = {
   giveJobMoney: (money: number) => {
     if (user.get('skill_' + user.get('job')) >= 500) money = methods.parseInt(money * 1.5);
 
-    mp.events.callRemote('server:user:addJobMoney', money);
     if (user.get('bank_prefix') < 1) {
       user.addCashMoney(money);
+      mp.game.ui.notifications.show('Вы заработали ~g~$' + methods.numberFormat(money));
       mp.game.ui.notifications.show('~y~Оформите банковскую карту');
     } else {
       user.addBankMoney(money);
       user.sendSmsBankOperation(`Зачисление средств: ~g~$${money}`);
     }
+
+    mp.events.callRemote('server:user:addJobMoney', money);
 
     coffer.removeMoney(money);
 

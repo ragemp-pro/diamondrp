@@ -1,0 +1,72 @@
+
+	<!doctype html>
+
+	<html>
+		<head>
+			<title>FairPlayGaming voice chat</title>
+			<meta charset='UTF-8'>
+			<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+			<meta name='description' content='FairPlayGaming voice chat'>
+	
+			<script>
+	
+				window.isRageMp = typeof window.mp !== 'undefined';
+	
+				window.localStorage.setItem('debug', '* -engine* -socket* -RIE* *WARN* *ERROR*');
+				const format = (s, ...args) => {
+	
+					let index = 0;
+	
+					return s.replace(/%[cdeEufgosixX]/g, (match, literal, _key, xf) => {
+	
+						let result = ''
+	
+						switch(match) {
+							case '%s':
+							case '%f':
+							case '%d':
+							case '%i': {
+								result = args[index];
+								break;
+							}
+	
+							default: {
+								result = '';
+								break;
+							}
+						}
+	
+						index++;
+						return result;
+					});
+				};
+	
+				const oldConsole = {
+					log: console.log,
+					debug: console.debug,
+					info: console.info,
+					warn: console.warn,
+					error: console.error
+				}
+	
+				const generateConsole = (name, _args) => {
+					const [str, ...args] = _args;
+					return window.isRageMp ? oldConsole[name](..._args) : oldConsole[name](format(str, ...args), ...args);
+				};
+	
+				console.log = (...args) => generateConsole('log', args);
+				console.debug = (...args) => generateConsole('debug', args);
+				console.info = (...args) => generateConsole('info', args);
+				console.warn = (...args) => generateConsole('warn', args);
+				console.error = (...args) => generateConsole('error', args);
+	
+			</script>
+			<script async src='./fairplay-gaming-voice-chat.js'></script>
+		</head>
+	
+		<body>
+			<div id='media-query-detector'></div>
+		</body>
+	</html>
+	
+		

@@ -1,0 +1,85 @@
+<html>
+<style>
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+  }
+</style>
+
+<div id="body">
+
+</div>
+<img id="bag" src="bag.png" width="30%">
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+<script>
+  let minigameID = 0;
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    if (data.indexOf("money") != 0) return;
+    document.querySelector("#" + data).remove()
+    needMake--;
+    if (needMake == 0) mp.trigger("minigame:end", minigameID, true);
+  }
+
+  let needMake = 0
+
+  function generateRandom(count = 10) {
+    needMake = count;
+    for (let id = 0; id < count; id++) {
+      var img = new Image();
+      img.src =
+        'money.png';
+      img.id = "money_" + id
+      img.setAttribute('style',
+        `width:10%;position:absolute;right:${getRandomInt(400, window.innerWidth-100)}px;top:${getRandomInt(200, window.innerHeight-100)}px;`
+      )
+      $(img).draggable({
+        revert: true,
+        revertDuration: 500
+      });
+      document.getElementById('body').appendChild(img);
+    }
+
+    console.log(needMake)
+
+  }
+
+
+
+  $("#bag").droppable({
+    drop: function (event, ui) //если бросили фигуру в клетку
+    {
+      let data = ui.draggable[0].id
+      $("#" + data).fadeOut(500, () => {
+        document.querySelector("#" + data).remove()
+        needMake--;
+        console.log(needMake)
+        if (needMake == 0) mp.trigger("minigame:end", minigameID, true);
+      })
+    }
+  });
+
+
+  generateRandom(getRandomInt(5, 15));
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+</script>
+
+</html>

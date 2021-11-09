@@ -100,7 +100,7 @@ const weather = {
   },
   
   syncDateTime: (min:number, hour:number, day:number, month:number, year:number) => {
-    mp.discord.update('Diamond RolePlay'+(user.testServer ? ' [TEST MOD]' : ''), 'gta-5.ru');
+    mp.discord.update('Diamond RolePlay', 'gta-5.ru');
   
     DayName = DayNames[new Date(year, month, day).getDay()];
   

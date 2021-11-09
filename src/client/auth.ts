@@ -110,7 +110,7 @@ mp.events.add({
     user.showLoadDisplay();
     checkpoint.checkPosition();
     mp.nametags.enabled = false;
-    mp.discord.update('Diamond RolePlay'+(user.testServer ? ' [TEST MOD]' : ''), 'gta-5.ru');
+    mp.discord.update('Diamond RolePlay', 'gta-5.ru');
     mp.players.local.freezePosition(true);
     mp.game.ui.displayRadar(false);
     mp.players.local.setVisible(false, false);

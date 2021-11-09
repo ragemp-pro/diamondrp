@@ -1,0 +1,501 @@
+﻿<html>
+<header>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+
+
+	<!-- Compiled and minified JavaScript -->
+	<link href="style.css" rel="stylesheet">
+</header>
+
+<body>
+	<div id="app2" style="display: none;">
+		<div id="app">
+
+
+
+
+			<div v-if="playersRaceResultShow" class="playersRaceResult">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Позиция</th>
+							<th>Имя</th>
+							<th>ТС</th>
+							<th>Время</th>
+							<th>Лучший круг</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(item, index) in playersRaceResult">
+							<th>{{(index+1)}}</th>
+							<th><img v-if="item.avatar" v-bind:src="item.avatar" width="20px"> {{item.name}}</th>
+							<th>{{item.vehicle}}</th>
+							<th>{{item.time}}</th>
+							<th>{{item.bestLap}}</th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="closeHelp closeButton" @click="exitFromLobby()">🖱️ Закрыть и выйти из лобби</div>
+			</div>
+
+
+
+
+
+			<div v-if="playersRaceShow && !spectate" class="raceHud">
+				<table>
+					<tbody>
+						<tr>
+							<td class="pos1">{{myPosition}}</td>
+							<td class="pos2">&nbsp;Позиция<br/>&nbsp;&nbsp;/ {{racersCount}}</td>
+							<td class="pos2">&nbsp;Чекпоинт<br/>&nbsp;{{currentCheckPoint}} / {{raceCheckpoints}}</td>
+							<td class="pos2" v-if="raceLaps > 1">&nbsp;<span v-bind:style="currentLap == raceLaps ? 'background-color:red;padding:2px;border-radius:5px;' : ''">Круг</span><br/>&nbsp;{{currentLap}} / {{raceLaps}}</td>
+						</tr>
+						<tr>
+							<td class="pos2" colspan="4" style="text-align:center;">{{vehicleName}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+
+			<div class="racePosition" v-if="(playersRaceShow  || spectate) && race_info_draw().length > 0" class="playersRaceShow">
+				<table class="table">
+					<tbody>
+						<tr @click="selectSpect(item.id)" v-for="(item, index) in race_info_draw()" v-if="(((index > (myPosition - 5)) && (index < (myPosition + 5))) || showFullPosition || index == 0)"
+							v-bind:style="(!item.me ? 'background-color:#000000a6;color:#ffffffab;' : 'background-color:#ffffff96;color:#000000ab;') + 'margin-bottom:30px;border:2px solid #ddd0;'">
+							<th style="background-color:black;text-align:center;color:#ffffffd4;border:1px solid white;">{{(index+1)}}</th>
+							<!--th style="text-align:center;">{{item.id}}</th-->
+							<th>{{item.name}} </th>
+							<th>{{item.vehicle}}</th>
+							<th v-if="!item.me" v-bind:style="(item.time < 0) ? 'color: red': 'color: green'">
+								<span v-if="item.time < 0">+</span>
+								<span v-if="item.time >= 0">-</span>
+								{{millisToMinutesAndSeconds(item.time)}}
+							</th>
+							<th v-if="item.me">
+								{{millisToMinutesAndSeconds(0)}}
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<div v-if="(playersRaceShow || qualificationShow) && respawnLineTimer > 0" class="respawn">
+				<div class="respawnLine" v-bind:style="'width:'+respawnLineTimer+'%'"></div>
+				<span class="respawnText">{{respawnLineName}}</span>
+			</div>
+
+
+			<div v-if="playersRaceShow || spectate" class="hudRaceName">
+				{{raceName}}
+			</div>
+
+
+			<div v-if="(playersRaceShow || spectate) && !qualificationShow" class="hud2">
+				Время: {{millisToMinutesAndSeconds(currentTime - startTime)}}<br />
+				<span  v-if="!spectate" v-bind:style="'color:'+bestLapColor">Лучшее время круга: {{millisToMinutesAndSeconds(bestLap)}}<br /></span>
+				<span>{{(raceTimeEnd > 0) ? ("До конца гонки: "+millisToMinutesAndSeconds((raceTimeEnd - currentTime) > 0 ? (raceTimeEnd - currentTime) : 0)) : "Время гонки не ограничено"}}</span>
+			</div>
+
+
+
+
+			<div class="racePosition" v-if="qualificationShow && qualificationData.length > 0">
+				<table class="table">
+					<tbody>
+						<tr @click="selectSpect(item.id)" v-for="(item, index) in qualificationData" v-if="(((index > (myPosition - 5)) && (index < (myPosition + 5))) || me == item.id || showFullPosition || spectate || index == 0 || spectate)"
+							v-bind:style="(!item.me ? 'background-color:#000000a6;color:#ffffffab;' : 'background-color:#ffffff96;color:#000000ab;') + 'margin-bottom:30px;border:2px solid #ddd0;'">
+							<th style="background-color:black;text-align:center;color:#ffffffd4;border:1px solid white;">{{(index+1)}}</th>
+							<!--th style="text-align:center;">{{item.id}}</th-->
+							<th>{{item.name}} </th>
+							<th>{{item.vehicle}}</th>
+							<th>
+								{{millisToMinutesAndSeconds(item.time)}}
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div v-if="qualificationShow" class="hud2">
+				<span v-if="!spectate">Время текущего круга: {{millisToMinutesAndSeconds(currentTime - startTime)}}<br /></span>
+				<span v-if="!spectate" v-bind:style="'color:'+bestLapColor">Лучшее время круга: {{millisToMinutesAndSeconds(bestLap)}}<br /></span>
+				<span>До окончания: {{millisToMinutesAndSeconds((qualificationEnd - currentTime) > 0 ? (qualificationEnd - currentTime) : 0)}}</span>
+			</div>
+
+
+
+
+			<div v-if="myping > 0" class="ping" v-bind:style="'color: '+((myping > 100) ? 'red': ((myping > 60) ? 'yellow' : 'green'))+';'">
+				{{myping}} ms
+			</div>
+
+
+
+		</div>
+	</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="vue.js"></script>
+<script>
+	let app = new Vue({
+		el: "#app",
+		data: {
+			myping: 0,
+			playersServerList: [],
+			qualificationShow: false,
+			qualificationEnd: 0,
+			qualificationData: [],
+			preaudio: new Audio('pre.wav'),
+			goaudio: new Audio('go.wav'),
+			raceName: "",
+			myPosition: 1,
+			respawnLineTimer: 0,
+			respawnLineName: "Респавн",
+			showFullPosition: false,
+			raceCheckpoints: 0,
+			raceLaps: 0,
+			racersCount: 0,
+			playersInfo: [],
+			playersRace: [],
+			playersRaceShow: false,
+			playersRaceResult: [],
+			playersRaceResultShow: false,
+			currentLap: 1,
+			currentCheckPoint: 1,
+			vehicleName: "",
+			startTime: 0,
+			currentTime: 0,
+			bestLap: 0,
+			bestLapColor: "white",
+			me: null,
+			gtx: null,
+			freezedTimer: true,
+			raceTimeEnd: 0,
+			pingData: [],
+			spectate: false,
+			raceInfoData: []
+		},
+		methods: {
+			setPingData: function(jsdata){
+				app.pingData = JSON.parse(jsdata);
+				//app.me = myid;
+			},
+			getPingDataRemote: function(id){
+				let res;
+				app.pingData.forEach(function(item){
+					if(item.id == id) res = item;
+				})
+				return res;
+			},
+			getPingDataDb: function(id){
+				let res;
+				app.pingData.forEach(function(item){
+					if(item.user_id == id) res = item;
+				})
+				return res;
+			},
+			setQualificationData: function(jsdata, m){
+				if(!app.spectate) app.me = m;
+				let data = JSON.parse(jsdata);
+				data = data.sort(function(a, b) {
+					const data2 = a;
+					const data1 = b;
+
+					let comparison = 0;
+					if(data1.time == 0){
+						comparison = -1;
+					} else if(data2.time == 0){
+						comparison = 1;
+					} else	if (data1.time < data2.time) {
+						comparison = 1;
+					} else if (data1.time > data2.time) {
+						comparison = -1;
+					}
+					return comparison;
+				});
+				data.forEach(function(item){
+					let driver = app.getRacer(item.uid);
+					item.vehicle = driver.vehicle;
+					item.name = driver.name;
+				})
+				app.qualificationData = data;
+			},
+			setRaceTimeEnd: function(times) {
+				app.raceTimeEnd = this.getTime().full + times;
+			},
+			setQualificationEnd: function(times) {
+				app.qualificationData = [];
+				app.startTime = this.getTime().full;
+				app.qualificationEnd = this.getTime().full + times * 1000 * 60;
+				app.qualificationShow = true;
+				app.bestLap = 0;
+			},
+			qualificationNewLap: function() {
+				app.startTime = this.getTime().full;
+			},
+			finalResults: function(datajs) {
+				let data = JSON.parse(datajs);
+				let res = [];
+				data.forEach(function(ins) {
+					let user = app.getRacer(ins.user)
+					res.push({
+						name: user.name,
+						vehicle: user.vehicle,
+						time: app.millisToMinutesAndSeconds(ins.time),
+						bestLap: app.millisToMinutesAndSeconds(ins.bestLap)
+					})
+				})
+				app.playersRaceResult = res;
+				app.playersRaceShow = false;
+				app.playersRaceResultShow = true;
+				app.bestLap = 0;
+			},
+			exitFromLobby: function() {
+				if (!app.playersRaceResultShow) return;
+				app.playersRaceShow = false;
+				app.playersRaceResultShow = false;
+				app.spectate = false;
+				app.bestLap = 0;
+				mp.trigger("exitFromRaceLobby");
+			},
+			js(d) {
+				return JSON.stringify(d);
+			},
+			setUserData: function(dats) {
+				this.playersInfo = JSON.parse(dats);
+				this.racersCount = this.playersInfo.length;
+			},
+			getRacer: function(id) {
+				let rets;
+				this.playersInfo.forEach(function(user) {
+					if (user.id == id) rets = user;
+				})
+				return rets;
+			},
+			baseChecksData: function(js) {
+
+			},
+			millisToMinutesAndSeconds: function(millis) {
+				if (millis < 0) millis = -millis;
+				let minutes = Math.floor(millis / 60000);
+				let seconds = ((millis % 60000) / 1000).toFixed(0);
+				let ms = 0
+
+				ms = (millis - (minutes * 60 * 1000 + seconds * 1000))
+
+				if(seconds >= 60){
+					seconds = 0;
+					minutes++;
+				}
+				if(ms >= 1000){
+					ms = 0;
+					seconds++;
+				}
+
+				if (ms < 0) ms = ms * -1;
+				if (ms.toString().length < 3) ms = ms.toString() + "0";
+				if (ms.toString().length < 3) ms = ms.toString() + "0";
+				if (ms.toString().length < 3) ms = ms.toString() + "0";
+				return minutes + ":" + (seconds < 10 ? '0' : '') + seconds + ":" + ms;
+			},
+			startRace: function() {
+				this.freezedTimer = false;
+				this.playersRaceShow = true;
+				this.startTime = this.getTime().full;
+				this.raceInfoData = [];
+			},
+			startSpectate: function() {
+				this.freezedTimer = false;
+				this.spectate = true;
+				this.startTime = this.getTime().full;
+				this.raceInfoData = [];
+			},
+			getTime: function(from = null) {
+				let time;
+				if (from == null) time = new Date();
+				else time = new Date(from);
+				let hours = time.getHours();
+				let minutes = time.getMinutes();
+				let seconds = time.getSeconds();
+				let ms = time.getMilliseconds();
+				let m = time.getTime();
+				let full = ms + seconds * 1000 + minutes * 60 * 1000 + hours * 60 * 60 * 1000
+				let res = {};
+				res.hour = hours;
+				res.minutes = minutes;
+				res.seconds = seconds;
+				res.ms = ms;
+				res.m = m;
+				res.full = full;
+				res.index = time;
+				return res;
+			},
+			selectSpect: function(id){
+				if(!app.spectate) return;
+				app.me = id;
+				mp.trigger("selectSpectateTarger", id);
+			},
+			race_info: function(datajs) {
+				app.raceInfoData = JSON.parse(datajs);
+			},
+			race_info_draw: function() {
+				let data = app.raceInfoData;
+				let results = {}; // Определяем лучшую позицию каждого гонщика
+				let racers = this.playersInfo;
+
+				// Обнуляем данные
+				racers.forEach(function(racer) {
+					racer.results = [];
+				})
+
+				// Вносим гонщикам их позиции
+				data.forEach(function(item) {
+					//console.log(app.getRacer(item.user))
+					let racer = app.getRacer(item.user);
+					if(racer) racer.results.push(item);
+				})
+
+				// Ищем себя
+				if(app.me == null && app.spectate){
+					app.me = racers[0].id;
+				}
+				let mydata = app.getRacer(app.me);
+				if(!mydata && app.spectate){
+					app.me = racers[0].id;
+					mydata = app.getRacer(app.me);
+				}
+				// Инициируем ячейку с данными для сравнения времени
+				let cmp = [];
+
+				// Снова всех перебираем для генерации данных
+				racers.forEach(function(racer) {
+
+					let insdata; // Эти данные мы будем вносить
+					let best; // Это его лучший результат, для сортировки списка
+					racer.results.forEach(function(pos) {
+						mydata.results.forEach(function(mypos) {
+							if (pos.lap == mypos.lap && pos.check == mypos.check) { // Эти данные совпадают, вносим
+								insdata = {
+									his: pos,
+									my: mypos
+								};
+							}
+							if (best == null || pos.lap >= best.lap && pos.check >= best.check && pos.time >= best.time) {
+								best = pos;
+							}
+						})
+					})
+					// На этом этапе мы имеем нужные данные, вносим их для отображения
+					//console.log(racer.id)
+					if (insdata) {
+						let addtime = 0;
+						/*let speed;
+						let dist = app.getPingDataDb(racer.id).dist;
+						if((insdata.his.time - insdata.my.time) > 0){
+							// Я быстрее
+							speed = app.getPingDataDb(racer.id).speed;
+						} else {
+							// Он быстрее
+							speed = app.getPingDataDb(app.me).speed;
+						}
+						addtime = (dist/speed)*1000*/
+
+
+						if (racer.id == app.me) {
+							cmp.push({
+								id: racer.id, // Ид гонщика
+								vehicle: racer.vehicle, // ТС
+								name: racer.name, // Имя
+								time: 0, // Разница во времени
+								me: true, // Может это мы?
+								best: best, // Это его лучший результат, по нему будем сортировать.
+								ping: racer.ping,
+								packetLoss: racer.packetLoss,
+								dist: 0,
+							})
+						} else {
+							//console.log(insdata)
+							cmp.push({
+								id: racer.id, // Ид гонщика
+								vehicle: racer.vehicle, // ТС
+								name: racer.name, // Имя
+								time: (insdata.his.time - insdata.my.time) + ((insdata.his.time - insdata.my.time) < 0 ? -addtime : addtime), // Разница во времени
+								me: false, // Может это мы?
+								best: best, // Это его лучший результат, по нему будем сортировать.
+								ping: racer.ping,
+								packetLoss: racer.packetLoss,
+								dist: 0,
+							})
+						}
+
+					}
+				})
+				// Сортируем таблицу
+				cmp = cmp.sort(function(a, b) {
+					const data2 = a.best;
+					const data1 = b.best;
+
+					let comparison = 0;
+					if (data1.lap > data2.lap) {
+						comparison = 1;
+					} else if (data1.lap < data2.lap) {
+						comparison = -1;
+					} else if (data1.check > data2.check) {
+						comparison = 1;
+					} else if (data1.check < data2.check) {
+						comparison = -1;
+					} else if (data1.time < data2.time) {
+						comparison = 1;
+					} else if (data1.time > data2.time) {
+						comparison = -1;
+					}
+					return comparison;
+				});
+
+				cmp.forEach(function(item, index) { // Финальное деяние - определить где мы
+					if (item.id == app.me) app.myPosition = index + 1;
+				})
+
+				//app.playersRace = cmp;
+				app.playersRaceShow = true;
+				return cmp;
+			},
+			setBestLap: function(bestLap) {
+				app.bestLap = bestLap;
+				app.bestLapColor = 'green';
+				setTimeout(function() {
+					app.bestLapColor = 'white';
+					setTimeout(function() {
+						app.bestLapColor = 'green';
+						setTimeout(function() {
+							app.bestLapColor = 'white';
+						}, 1000)
+					}, 1000)
+				}, 1000)
+			}
+		},
+		mounted() {
+			setInterval(function() {
+				//if (((app.playersRaceShow || app.spectate || app.qualificationShow) && !app.freezedTimer)) {
+					app.currentTime = app.getTime().full;
+				//}
+			}, 23)
+			setTimeout(() => {
+				document.getElementById("app2").style = ""
+			}, 5000)
+		},
+	})
+
+
+
+
+
+</script>
+
+</html>

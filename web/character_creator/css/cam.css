@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto.woff') format('woff'),
+    url('../fonts/Roboto.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font-family: 'Roboto';
+}
+.control{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    background-color: #1565c0;
+    border-top-left-radius: 5px;
+    color: white;
+}
+.control p{
+    font-size: 14pt;
+    margin: 10px;
+}
+.control output{
+    margin-top: 10px;
+    display: block;
+}

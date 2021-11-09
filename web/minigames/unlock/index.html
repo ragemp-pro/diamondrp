@@ -1,0 +1,212 @@
+<html>
+<style>
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+  }
+  #lock {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+  }
+  .time-to-luntik {
+  	background: rgba(15, 21, 31, 0.71);
+  	border-radius: 10px;
+  	position: absolute;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 20px;
+  	right: 20px;
+  	bottom: 100px;
+  	font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+  }
+  .time-to-luntik2 {
+  	background: rgba(15, 21, 31, 0.71);
+  	border-radius: 10px;
+  	position: absolute;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 20px;
+  	right: 20px;
+  	top: 10px;
+  	font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+  }
+</style>
+
+<div id="body">
+  <div class="time-to-luntik" style="display: none"><p></p></div>
+  <div class="time-to-luntik2" onclick="cancel();">Закрыть</div>
+  <img id="lock" src="./handcuff.png" width="400px">
+  <img id="redleft" src="./red.png" style="position: absolute;
+  top: 262px;
+    left: 314px;
+  width: 35px;
+  z-index:99999
+  ">
+  <img id="redright" src="./red.png" style="position: absolute;
+  top: 262px;
+    left: 448px;
+  width: 35px;
+  z-index:99999
+  ">
+</div>
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+<script>
+let cd = 40
+
+function cancel(){
+  cd = -1;
+}
+setInterval(() => {
+  cd--;
+  $(".time-to-luntik>p").html("Осталось: "+cd+" сек<br/><center>"+lefthp+" / "+righthp+"</center>"), $(".time-to-luntik").show(500);
+  if(cd <= 0) return  $("#body").hide(cd == 0 ? 1500 : 0), mp.trigger("minigame:end", minigameID, false);
+}, 1000)
+
+  let minigameID = 0;
+  $("#redleft").hide()
+  $("#redright").hide()
+  let leftpos = {top: $('#lock').position().top+52, left: $('#lock').position().left+112};
+  let rightpos = {top: $('#lock').position().top+52, left: $('#lock').position().left+249};
+  setTimeout(function(){
+    leftpos = {top: $('#lock').position().top+52, left: $('#lock').position().left+112};
+    rightpos = {top: $('#lock').position().top+52, left: $('#lock').position().left+249};
+  }, 100);
+
+  let lefthp = 100;
+  let righthp = 100;
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    console.log(ev.dataTransfer)
+  }
+
+  let needMake = 0
+
+
+let pin1status = '';
+let pin2status = '';
+
+
+let shakeprotect = false;
+
+document.body.onkeyup = function(e){
+  if(e.keyCode == 32){
+    if(cd == 0) return;
+    if(pin1status != pin2status) return;
+    if(pin1status == '') return;
+    if(pin1status == 'left') lefthp-=1;
+    if(pin1status == 'right') righthp-=1;
+    if(lefthp <= 0) lefthp = 0, $("#redleft").show(500)
+    if(righthp <= 0) righthp = 0, $("#redright").show(500)
+    $(".time-to-luntik>p").html("Осталось: "+cd+" сек<br/><center>"+lefthp+" / "+righthp+"</center>")
+    if(lefthp == 0 && righthp == 0){
+      $( "#pin1" ).hide(500);
+      $( "#pin2" ).hide(500);
+      $("#body").hide(1500)
+      return mp.trigger("minigame:end", minigameID, true);
+    }
+    if(shakeprotect) return;
+    shakeprotect = true;
+    setTimeout(() => {
+      shakeprotect = false;
+    }, 1000)
+    $( "#pin1" ).effect( "shake", {
+      distance: 2,
+      times  : 2,
+    } );
+    $( "#pin2" ).effect( "shake", {
+      distance: 1,
+      times  : 3,
+    });
+  }
+}
+
+function q (event, ui) {
+  const reverce = ui.draggable[0].id == 'pin2'
+  if(ui.draggable[0].id == 'pin2') pin2status = ''
+  else pin1status = ''
+  console.log(ui.draggable.position(), leftpos)
+  console.log(ui.draggable.position().top - leftpos.top, ui.draggable.position().left - leftpos.left)
+  console.log(distanceToPos2D(ui.draggable.position(), leftpos, reverce))
+  if(distanceToPos2D(ui.draggable.position(), leftpos, reverce) < 10){
+    if(ui.draggable[0].id == 'pin2') pin2status = 'left'
+    else pin1status = 'left'
+  }
+  if(distanceToPos2D(ui.draggable.position(), rightpos, reverce) < 10){
+    if(ui.draggable[0].id == 'pin2') pin2status = 'right'
+    else pin1status = 'right'
+  }
+}
+
+  $("#lock").droppable({
+    over: q,
+    out: q,
+    drop: q,
+    drag: q,
+  });
+
+  const distanceToPos2D = (v1, v2, reverce = false)  =>{
+      return Math.abs(Math.sqrt(Math.pow((v2.top - (v1.top + (reverce ? 96 : 0))),2) +
+          Math.pow((v2.left - (v1.left + (reverce ? 160 : 0))),2)));
+  }
+
+  let img = new Image();
+  img.src =
+    'pin.png';
+  img.id = "pin1"
+  img.setAttribute('style',
+    `z-index:9999;width:200px;position:absolute;right:${getRandomInt(400, window.innerWidth-200)}px;top:${getRandomInt(200, window.innerHeight-200)}px;`
+  )
+  $(img).draggable({
+    revert: false,
+    revertDuration: 500
+  });
+  document.getElementById('body').appendChild(img);
+
+
+
+  let img2 = new Image();
+  img2.src =
+    'pin.png';
+  img2.id = "pin2"
+  img2.setAttribute('style',
+    `transform: scale(-1, -1);z-index:9999;width:200px;position:absolute;right:${getRandomInt(400, window.innerWidth-200)}px;top:${getRandomInt(200, window.innerHeight-200)}px;`
+  )
+  $(img2).draggable({
+    revert: false,
+    revertDuration: 500
+  });
+  document.getElementById('body').appendChild(img2);
+
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+</script>
+
+</html>

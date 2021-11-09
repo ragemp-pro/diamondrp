@@ -58,6 +58,7 @@ interface PedMp extends EntityMp {
 }
 
 interface Mp {
+  peds: any;
   blips: BlipMpPool;
   checkpoints: CheckpointMpPool;
   colshapes: ColshapeMpPool;
@@ -484,6 +485,9 @@ interface EntityMpPool<TEntity> {
 }
 
 interface EventMpPool extends CustomEventPool {
+  register(arg0: string, arg1: (player: any, sum: number) => any);
+  triggerBrowser(player: PlayerMp, arg1: string, arg2: { cash: number; bank: number; bank_number: string; });
+  callClient(player: PlayerMp, arg1: string, model: HashOrString[]);
   addSocket(name: string, handle: (player: PlayerMp, ...args:any[]) => void):void;
   addRemoteCounted(arg0: string, arg1: (player: PlayerMp, ...args: any) => void):any;
     __add__: { (eventName: string, callback: (...args: any[]) => void): void; (events: { [name: string]: (...args: any[]) => void; }): void; (eventName: string, callback: (...args: any[]) => void): void; (events: { [name: string]: (...args: any[]) => void; }): void; };

@@ -7809,8 +7809,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.playMinigame = playMinigame;
 let baseUrl;
 mp.events.add('web:browsers:urls', q => {
-  let url = q[4];
-  baseUrl = url;
+  baseUrl = 'http://localhost:3400/minigames/';
 });
 let minigameID = 0;
 let minigameCb = new Map();
@@ -7840,7 +7839,7 @@ function playMinigame(name) {
 }
 
 setTimeout(() => {
-  mp.events.register("server:playMinigame", name => {
+  mp.events.add("server:playMinigame", name => {
     return playMinigame(name);
   });
 }, 100);

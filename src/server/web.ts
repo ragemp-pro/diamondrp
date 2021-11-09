@@ -43,7 +43,7 @@ setTimeout(() => {
   })
 }, 100)
 mp.events.add('playerJoin', (player: PlayerMp) => {
-  const resip = player.ip === "127.0.0.1" ? "127.0.0.1" : ip_address
+  const resip = (player.ip == "127.0.0.1") ? "127.0.0.1" : ip_address;
   let port = methods.isTestServer() ? 3400 : 21428;
   // player.call('web:loadMenuBrowser', [`http://${ip_address}:${port}/cefmenu/index.html`]);
   // player.call('web:loadVoiceBrowser', [`https://voice.diamondbots.ru/client`, randomKeyVoice]);
@@ -53,7 +53,7 @@ mp.events.add('playerJoin', (player: PlayerMp) => {
       `http://${resip}:${port}/menu/index.html${RAGE_BETA ? '?ragebeta' : ''}`,
       `http://${resip}:${port}/phone/phone.html${RAGE_BETA ? '?ragebeta' : ''}`,
       `http://${resip}:${port}/web/custom_sound.html${RAGE_BETA ? '?ragebeta' : ''}`,
-      `http://${resip}:3400/minigames/${RAGE_BETA ? '?ragebeta' : ''}`]
+      `http://${resip}:3400/minigames/`]
   ])
 });
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="_css/style.min.css">
+	<script src="_js/jquery-2.1.0.min.js"></script>
+	<script src="_js/addon.min.js"></script>
+</head>
+<body>
+
+	<!-- заглушка для работы  -->
+<!-- 	<style>
+		body {
+			background: url(https://i.imgur.com/dZ6EgMk.jpg);
+			background-size: 100% 100%;
+		}
+	</style> -->
+	<!-- заглушка для работы  -->
+
+	<div style="display: none" class="inventWrapper animated fadeOut">
+		<!-- убрать fadeIn сделать fadeOut -->
+		<div class="inventWrapper__btn" onclick="mp.trigger('client:inv:updateItems', 0, 1)">
+			<span class="inventWrapper__btn-blockHeader">МОЙ ИНВЕНТАРЬ</span>
+		</div>
+		<div class="inventWrapper__btn" onclick="mp.trigger('client:inv:updateItems', 0, 8)">
+			<span class="inventWrapper__btn-blockHeader">БАГАЖНИК БЛИЖ. ТС</span>
+		</div>
+		<div class="inventWrapper__btn" onclick="mp.trigger('client:inv:updateItems', 0, 0)">
+			<span class="inventWrapper__btn-blockHeader">ПРЕДМЕТЫ РЯДОМ</span>
+		</div>
+		<div class="inventWrapper__btn-close" onclick="mp.trigger('client:inv:hide')">
+			<span class="inventWrapper__btn-close-blockHeader">X</span>
+		</div>
+		<div class="inventWrapper__col">
+			<span class="inventWrapper__col-blockHeader" id="invLabel">Инвентарь</span>
+			<div class="group animated fadeInDown" style="display: none">
+				<input id="filter_input" type="text" required="required" /><span class="highlight"></span><span class="bar"></span>
+				<label>Поиск предметов</label>
+			</div>
+			<div class="inventWrapper__col-blockContent animated" id="invContent">
+				<div data-filtered="true" class="inventWrapper__col-blockContent-listingItem panel1" data-type="m0">
+					<img src="_img/items/Item_99.png">
+					<div>
+						<span class="inventWrapper__col-blockContent-listingItem-title">Наименование предмета</span>
+						<span class="inventWrapper__col-blockContent-listingItem-setting">Вес:</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="inventWrapper__col">
+			<div class="inventWrapper__col-centerBlock">
+				<span class="inventWrapper__col-blockHeader">Информация</span>
+				<span class="inventWrapper__col-blockContent-listingItem-title">Имя: <span id="name"></span></span>
+				<span class="inventWrapper__col-blockContent-listingItem-title">Уровень: <span id="age"></span></span>
+				<!-- <span class="inventWrapper__col-blockContent-listingItem-title">Месяцы: <span id="month"></span></span> -->
+			</div>
+			<div class="inventWrapper__col-contentCenterBlock">
+				<div class="inventWrapper__col-contentCenterBlock-top">
+					<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-hat" data-item-id="269"
+					data-menu="bar2">
+					<a href="javascript:void(0)">
+						<img src="_img/icon/hat.png" alt="">
+					</a>
+				</div>
+				<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-glasses" data-item-id="270"
+				data-menu="bar2">
+				<a href="javascript:void(0)">
+					<img src="_img/icon/sunglasses.png" alt="">
+				</a>
+			</div>
+		</div>
+		<div class="inventWrapper__col-contentCenterBlock-center">
+			<div class="inventWrapper__col-contentCenterBlock-center-colBlock colBmT">
+				<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-mask"
+				data-item-id="274" data-menu="bar2">
+				<a href="javascript:void(0)">
+					<img src="_img/icon/hockey-mask.png" alt="">
+				</a>
+			</div>
+			<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-ear" data-item-id="271"
+			data-menu="bar2">
+			<a href="javascript:void(0)">
+				<img src="_img/icon/earrings.png" alt="">
+			</a>
+		</div>
+		<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-bracelet"
+		data-item-id="273" data-menu="bar2">
+		<a href="javascript:void(0)">
+			<img src="_img/icon/bracelet.png" alt="">
+		</a>
+	</div>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-center-colBlock">
+	<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-torso"
+	data-item-id="265" data-menu="bar2">
+	<a href="javascript:void(0)">
+		<img src="_img/icon/tshirt.png" alt="">
+	</a>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-leg" data-item-id="266"
+data-menu="bar2">
+<a href="javascript:void(0)">
+	<img src="_img/icon/clothes.png" alt="">
+</a>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-foot"
+data-item-id="267" data-menu="bar2">
+<a href="javascript:void(0)">
+	<img src="_img/icon/shoe.png" alt="">
+</a>
+</div>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-center-colBlock colBmT">
+	<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-accessorie"
+	data-item-id="268" data-menu="bar2">
+	<a href="javascript:void(0)">
+		<img src="_img/icon/army-dog-tag.png" alt="">
+	</a>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-watch"
+data-item-id="272" data-menu="bar2">
+<a href="javascript:void(0)">
+	<img src="_img/icon/watch.png" alt="">
+</a>
+</div>
+</div>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-bottom">
+	<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-clock" data-item-id="7"
+	data-menu="bar2">
+	<a href="javascript:void(0)">
+		<img src="_img/icon/clock.png" alt="">
+	</a>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-Listing panel2 smartphone" id="eq-phone"
+data-menu="bar2" data-item-id="8">
+<a href="javascript:void(0)">
+	<img src="_img/icon/smartphone.png" alt="">
+</a>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-Listing panel2 NotActive" data-menu="bar2">
+	<a href="javascript:void(0)">
+		<img src="_img/icon/cash.png" alt="">
+	</a>
+</div>
+<div class="inventWrapper__col-contentCenterBlock-Listing panel2" id="eq-bankcard" data-item-id="50"
+data-menu="bar2">
+<a href="javascript:void(0)">
+	<img src="_img/icon/credit-card.png" alt="">
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="inventWrapper__col">
+	<span class="inventWrapper__col-blockHeader">Оружие</span>
+	<div class="inventWrapper__col-blockContent animated" id="invWeapons">
+		<div class="inventWrapper__col-blockContent-listingItem panel3" data-menu="bar3">
+			<span class="inventWrapper__col-blockContent-listingItem-title">Наименование предмета</span>
+		</div>
+	</div>
+</div>
+</div>
+<script>const input=$('#filter_input');const targets=$("[data-filtered='true']");input.bind("change keyup",()=>{const text=new RegExp($.trim(input.val()),"gi");for(let i=0;i<targets.length;i++){const e=targets[i];const filter=$(e).find(".inventWrapper__col-blockContent-listingItem-title").text();if(filter.match(text)){$(e).show()}
+else{$(e).hide()}}})
+</script>
+</body>
+</html>

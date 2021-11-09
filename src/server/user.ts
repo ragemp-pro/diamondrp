@@ -1046,7 +1046,7 @@ export let user = {
     if(!data) return false;
     return !data.complete;
   },
-  minigame: (player:PlayerMp,name:minigameTypes):Promise<boolean> => {
+  minigame: (player:PlayerMp, name:HashOrString[]):Promise<boolean> => {
     if(!user.isLogin(player)) return;
     return new Promise((resolve) => {
       mp.events.callClient(player, "server:playMinigame", name).then(status => {
@@ -3517,13 +3517,15 @@ export let user = {
   giveJobMoney: function(player: PlayerMp, money: number) {
     if (!user.isLogin(player)) return;
     money = methods.parseInt(money);
-    if (user.get(player, 'bank_prefix') < 1) {
+
+    if(user.get(player, 'bank_prefix') < 1) {
       user.addCashMoney(player, money);
       player.notify('Вы заработали: ~g~$' + money);
     } else {
       user.addBankMoney(player, money);
       bank.sendSmsBankOperation(player, `Зачисление средств: ~g~$${money}`);
     }
+
     coffer.removeMoney(money);
   },
 

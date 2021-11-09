@@ -11,24 +11,27 @@ export const tempConfigs:{
     gosx2: any,
     /** Оповещение о X2 донатах */
     donatex2: any,
+    donatex3: any,
+    cofferbonus: any,
+    to20: any,
     /** Бонус за 5 и 10 часов онлайна */
     fiveAndTenBonus: any,
     /** Логи сервера */
     logs: any,
     /** Поставки оружия */
     chestorders: any,
-    [param:string]:string
+    // [param:string]:string
 } = {
-    paydayx2: "X2 payday",
-    jobx2: "X2 job",
-    agex2: "Возраст X2",
-    agex2new: "Возраст X2 новичкам",
-    gosx2: "Надбавка гос X2",
-    donatex2: "Оповещение о X2 донатах",
-    donatex3: "Оповещение о X3 донатах",
-    fiveAndTenBonus: "Бонус за 5 и 10 часов онлайна",
-    logs: "Новая система логов",
-    cofferbonus: "Автопополнение казны",
-    to20: "Оповещение о награде за топ20",
-    chestorders: "Поставки оружия в фракциях",
+    paydayx2: false,
+    jobx2: false,
+    agex2: false,
+    agex2new: false,
+    gosx2: false,
+    donatex2: false,
+    donatex3: false,
+    fiveAndTenBonus: false,
+    logs: false,
+    cofferbonus: false,
+    to20: false,
+    chestorders: false,
 }

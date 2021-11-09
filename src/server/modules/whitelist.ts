@@ -35,7 +35,6 @@ export const whitelist = {
 }
 
 mp.events.add('server:login:success:after', (player:PlayerMp) => { 
-    return true
     if(!methods.isTestServer()) return true;
     if (whitelist.list.includes(player.socialClub.toLowerCase()) || player.ip == "127.0.0.1") return true;
     setTimeout(() => {

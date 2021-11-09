@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="_css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="_css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="_css/animate.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<script src="_js/jquery.min.js"></script>
+	<script src="_js/materialize.min.js"></script>
+</head>
+<body class="hide" style="height: 100%; width: 100%; user-select: none;">
+
+	<div class="row">
+		<div class="col s12">
+			<div class="phone-container animated phone-404">
+				<div class="phone">
+					<div class="phone-header z-depth-1 black lighten-3">
+						<div class="phone-panel">
+							<label style="display: flex">
+								<div><span id="temp-lvl">0</span>°</div>
+								<div style="margin-left: auto; display: flex">
+									<div id="time">
+										00:00
+									</div>
+									<div class="network">
+										<div class="white network-small"></div>
+										<div class="white network-medium"></div>
+										<div class="white network-large"></div>
+										<div class="red-text network-none hide">
+											<i class="material-icons" style="font-size: 8px;margin: 0;padding: 0;margin-top: -2px;display: block;">close</i>
+										</div>
+									</div>
+								</div>
+							</label>
+						</div>
+					</div>
+					<div class="clickpanel" id="phone-page" itemName="main">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-main-555">
+		<div class="bg-img">
+			<ul class="collection cols bg-black">
+				<div class="row">
+					<div class="col s12">
+						<div class="phone-panel">
+							<div style="display: block; margin: 16px 0; height: 40px">
+								<div class="left phone-main-time" id="main-time">00:00</div>
+								<div class="right phone-main-date">
+									<label style="font-size: 10px">
+										<span id="day-name">Воскресенье</span>
+										<br><span id="date">01/01/1990</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<li class="col s4" act="smsList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/sms-555.png" height="23">
+								<label>Смс</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="contList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/cont-555.png" height="23">
+								<label>Конт.</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="invaderMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/invader-555.png" height="23">
+								<label>Invader</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="mazeMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/maze-555.png" height="23">
+								<label>Maze</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="fleecaMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/fleeca-555.png" height="23">
+								<label>Fleeca</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="blaineMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/blaine-555.png" height="23">
+								<label>Blaine</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="pacificMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/pacific-555.png" height="23">
+								<label>Pacific</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="arcadiusMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/arcadius-555.png" height="23">
+								<label>Arcadius</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="browser" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/browser-555.png" height="23">
+								<label>Браузер</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="taxiMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/lst-555.png" height="23">
+								<label>Taxi</label>
+							</div>
+						</div>
+					</li>
+
+					<li class="col s4" act="radioMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/radio-555.png" height="23">
+								<label>Радио</label>
+							</div>
+						</div>
+					</li>
+
+					<li class="col s4" act="cancelCall" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/phone.png" height="23">
+								<label>Завершить звонок</label>
+							</div>
+						</div>
+					</li>
+
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-main-111">
+		<div class="bg-img">
+			<ul class="collection cols bg-black">
+				<div class="row">
+					<div class="col s12">
+						<div class="phone-panel">
+							<div style="display: block; margin: 16px 0; height: 40px">
+								<div class="left phone-main-time" id="main-time">00:00</div>
+								<div class="right phone-main-date">
+									<label style="font-size: 10px">
+										<span id="day-name">Воскресенье</span>
+										<br><span id="date">01/01/1990</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<li class="col s4" act="smsList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/sms-555.png" height="23">
+								<label>Смс</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="contList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/cont-555.png" height="23">
+								<label>Конт.</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="invaderMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/invader-555.png" height="23">
+								<label>Invader</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="mazeMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/maze-555.png" height="23">
+								<label>Maze</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="fleecaMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/fleeca-555.png" height="23">
+								<label>Fleeca</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="blaineMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/blaine-555.png" height="23">
+								<label>Blaine</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="pacificMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/pacific-555.png" height="23">
+								<label>Pacific</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="arcadiusMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/arcadius-555.png" height="23">
+								<label>Arcadius</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="browser" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/browser-555.png" height="23">
+								<label>Браузер</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="taxiMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/lst-555.png" height="23">
+								<label>Taxi</label>
+							</div>
+						</div>
+					</li>
+
+					<li class="col s4" act="radioMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/radio-555.png" height="23">
+								<label>Радио</label>
+							</div>
+						</div>
+					</li>
+
+					<li class="col s4" act="cancelCall" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/phone.png" height="23">
+								<label>Завершить звонок</label>
+							</div>
+						</div>
+					</li>
+
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-main-777">
+		<div class="bg-img">
+			<ul class="collection cols bg-black">
+				<div class="row">
+					<div class="col s12">
+						<div class="phone-panel">
+							<div style="display: block; margin: 16px 0; height: 40px">
+								<div class="left phone-main-time" id="main-time">00:00</div>
+								<div class="right phone-main-date">
+									<label style="font-size: 10px">
+										<span id="day-name">Воскресенье</span>
+										<br><span id="date">01/01/1990</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<li class="col s4" act="smsList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/sms-777.png" height="23">
+								<label>Смс</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="contList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/cont-777.png" height="23">
+								<label>Конт.</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="invaderMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/invader-555.png" height="23">
+								<label>Invader</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="mazeMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/maze-555.png" height="23">
+								<label>Maze</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="fleecaMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/fleeca-555.png" height="23">
+								<label>Fleeca</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="blaineMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/blaine-555.png" height="23">
+								<label>Blaine</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="pacificMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/pacific-555.png" height="23">
+								<label>Pacific</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="arcadiusMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/arcadius-555.png" height="23">
+								<label>Arcadius</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="browser" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/browser-555.png" height="23">
+								<label>Браузер</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="taxiMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/lst-555.png" height="23">
+								<label>Taxi</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="radioMenu" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/radio-555.png" height="23">
+								<label>Радио</label>
+							</div>
+						</div>
+					</li>
+
+					<li class="col s4" act="cancelCall" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/phone.png" height="23">
+								<label>Завершить звонок</label>
+							</div>
+						</div>
+					</li>
+
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-main-404">
+		<div class="bg-img">
+			<ul class="collection cols bg-black">
+				<div class="row">
+					<div class="col s12">
+						<div class="phone-panel">
+							<div style="display: block; margin: 16px 0; height: 40px">
+								<div class="left phone-main-time" id="main-time">00:00</div>
+								<div class="right phone-main-date">
+									<label style="font-size: 10px">
+										<br><span id="date">01/01/1990</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12">
+						<div class="phone-panel">
+							<div style="display: block; margin: 16px 0; height: 40px">
+								<h5 style="font-size: 1.5rem;" class="grey-text">Kali Linux <label style="font-size: 7px">(v1)</label></h5>
+							</div>
+						</div>
+					</div>
+					<li class="col s4" act="smsList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/sms-777.png" height="23">
+								<label>Sms</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="console" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/console.png" height="23">
+								<label>Console</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="browser" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/browser-555.png" height="23">
+								<label>Браузер</label>
+							</div>
+						</div>
+					</li>
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-main-403">
+		<div class="bg-img">
+			<ul class="collection cols bg-black">
+				<div class="row">
+					<div class="col s12">
+						<div class="phone-panel">
+							<div style="display: block; margin: 16px 0; height: 40px">
+								<div class="left phone-main-time" id="main-time">00:00</div>
+								<div class="right phone-main-date">
+									<label style="font-size: 10px">
+										<br><span id="date">01/01/1990</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col s12">
+						<div class="phone-panel">
+							<div style="display: block; margin: 16px 0; height: 40px">
+								<h5 style="font-size: 1.5rem;" class="grey-text">Kali Linux <label style="font-size: 7px">(v2)</label></h5>
+							</div>
+						</div>
+					</div>
+					<li class="col s4" act="smsList" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/sms-777.png" height="23">
+								<label>Sms</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="console" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/console.png" height="23">
+								<label>Console</label>
+							</div>
+						</div>
+					</li>
+					<li class="col s4" act="browser" tabindex="0">
+						<div class="center">
+							<div class="icon-item">
+								<img src="_img/browser-555.png" height="23">
+								<label>Браузер</label>
+							</div>
+						</div>
+					</li>
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-sms">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b>Список ваших смс</b>
+				</div>
+				<ul id="data-sms-list" class="collection list">
+					<li class="collection-item green-text" tabindex="0">Написать СМС</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-cont">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b>Контакты</b>
+				</div>
+				<ul id="data-cont-list" class="collection list">
+					<li class="collection-item green-text" tabindex="0">Новый контакт</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-sms-action">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b>Смс - действия</b>
+				</div>
+				<ul id="data-sms-item" class="collection list">
+					<div class="hide" id="data-sms-text"></div>
+					<li class="collection-item" tabindex="0">Прочитать</li>
+					<li class="collection-item" tabindex="0">Ответить</li>
+					<li class="collection-item red-text" tabindex="0">Удалить</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-cont-action">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b>Контакты - действия</b>
+				</div>
+				<ul id="data-cont-item" class="collection list">
+					<li class="collection-item blue-text" tabindex="0">Переименовать контакт</li>
+					<li class="collection-item red-text" tabindex="1">Удалить контакт</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-maze">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="red-text">Maze Bank</b>
+					<br><label class="black-or-white-text"><label class="grey-text">Баланс:</label> <span class="data-bank-money"></span></label>
+					<br><label class="black-or-white-text"><label class="grey-text">Счёт:</label> <span class="data-bank-number"></span></label>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="transferBank" tabindex="0">Перевести на другой счёт</li>
+					<li class="collection-item" act="payTaxByNumber" tabindex="0">Оплатить налоги по номеру счёта</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-maze-none">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="red-text">Maze Bank</b>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="payTaxByNumber" tabindex="0">Оплатить налоги по номеру счёта</li>
+					<li class="collection-item" act="setwaypoint" param1="-75" param2="-826" tabindex="0">Оформить карту</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-fleeca">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="green-text">Fleeca Bank</b>
+					<br><label class="black-or-white-text"><label class="grey-text">Баланс:</label> <span class="data-bank-money"></span></label>
+					<br><label class="black-or-white-text"><label class="grey-text">Счёт:</label> <span class="data-bank-number"></span></label>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="transferBank" tabindex="0">Перевести на другой счёт</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-fleeca-none">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="green-text">Fleeca Bank</b>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="setwaypoint" param1="148" param2="-1039" tabindex="0">Оформить карту</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-blaine">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="blue-text">Blaine Bank</b>
+					<br><label class="black-or-white-text"><label class="grey-text">Баланс:</label> <span class="data-bank-money"></span></label>
+					<br><label class="black-or-white-text"><label class="grey-text">Счёт:</label> <span class="data-bank-number"></span></label>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="transferBank" tabindex="0">Перевести на другой счёт</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-blaine-none">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="blue-text">Blaine Bank</b>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="setwaypoint" param1="-111" param2="6467" tabindex="0">Оформить карту</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-pacific">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="brown-text">Pacific Bank</b>
+					<br><label class="black-or-white-text"><label class="grey-text">Баланс:</label> <span class="data-bank-money"></span></label>
+					<br><label class="black-or-white-text"><label class="grey-text">Счёт:</label> <span class="data-bank-number"></span></label>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="transferBank" tabindex="0">Перевести на другой счёт</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-pacific-none">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b class="brown-text">Pacific Bank</b>
+				</div>
+				<ul class="collection list">
+					<li class="collection-item" act="setwaypoint" param1="235" param2="216" tabindex="0">Оформить карту</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-lifeinvader">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px; display: flex">
+					<img src="_img/invader-555.png" style="margin: 4px; width: 40px; height: 40px">
+					<b style="margin-top: 12px; margin-left: 8px;" class="black-or-white-text">Life Invader</b>
+				</div>
+				<ul class="collection list lifeinv">
+					<li class="collection-item" act="ad1" tabindex="0">Реклама <label>(Покупка)</label></li>
+					<li class="collection-item" act="ad2" tabindex="0">Реклама <label>(Продажа)</label></li>
+					<li class="collection-item" act="ad3" tabindex="0">Реклама <label>(Разное)</label></li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-taxi">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px; display: flex">
+					<img src="_img/lst-555.png" style="margin: 4px; width: 40px; height: 40px">
+					<b style="margin-top: 12px; margin-left: 8px;" class="black-or-white-text">Taxi</b>
+				</div>
+				<ul class="collection list lifeinv">
+					<li class="collection-item" act="gettaxi" param1="0" tabindex="0">Эконом<br><label>Stainer - От $10</label></li>
+					<li class="collection-item" act="gettaxi" param1="1" tabindex="0">Комфорт<br><label>Oracle XS - От $13</label></li>
+					<li class="collection-item" act="gettaxi" param1="2" tabindex="0">Комфорт+<br><label>Schafter LWB - От $15</label></li>
+					<li class="collection-item" act="gettaxi" param1="3" tabindex="0">Бизнес<br><label>Revolter - От $29</label></li>
+					<li class="collection-item" act="gettaxi" param1="4" tabindex="0">Спорт<br><label>SC1 - От $50</label></li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-radio">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px; display: flex">
+					<img src="_img/radio-555.png" style="margin: 4px; width: 40px; height: 40px">
+					<b style="margin-top: 12px; margin-left: 8px;" class="black-or-white-text">Radio SA</b>
+				</div>
+				<ul class="collection list lifeinv">
+					<li class="collection-item" act="enableRadio" tabindex="0">Включить</li>
+					<li class="collection-item" act="disableRadio" tabindex="0">Выключить</li>
+					<li class="collection-item green-text" act="tomain" tabindex="9999">Назад</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-console">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div class="phone-panel grey-text" style="padding: 8px;">
+					<b>Console</b>
+				</div>
+				<div class="phone-panel grey-text" style="height: 252px;overflow: auto;" id="data-console">
+
+				</div>
+				<div class="phone-panel">
+					<input id="console-input" placeholder="Command...">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="hide" id="tpl-preloader">
+		<div class="bg-img">
+			<div class="bg-black">
+				<div style="padding: 50% 8px;" class="center">
+					<div class="progress grey darken-3">
+						<div class="indeterminate blue"></div>
+					</div>
+					<label>Loading...</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="_js/main.min.js"></script>
+</body>
+</html>

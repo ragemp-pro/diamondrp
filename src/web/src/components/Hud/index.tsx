@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import $ from 'jquery';
 // import { getCharCode } from '../../../../util/index';
 
-import logo from './imgs/logo.svg';
+import logo from './imgs/logo.png';
 import bulletsImg from './imgs/bullets.svg';
 import microphoneImg from './imgs/microphone.svg';
 import microLockedImg from './imgs/locked-padlock.svg';

@@ -81,7 +81,7 @@ function checkAccess(player:PlayerMp){
       return false;
   }
   
-  if (!methods.isTestServer() && !testMode && mp.players.length < 100) {
+  if (!testMode && mp.players.length < 100) {
       player.notify("~r~Онлайн на сервере должен быть более 100 человек");
       return false;
   }

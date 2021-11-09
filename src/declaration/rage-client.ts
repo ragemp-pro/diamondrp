@@ -534,6 +534,7 @@ interface ColshapeMp extends EntityMp {
 }
 
 interface MarkerMp extends EntityMp {
+  getColor: any;
   // TODO
 }
 

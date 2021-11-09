@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>Character Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/character.css" />
+    <link rel="stylesheet" type="text/css" href="css/slider.css">
+    
+</head>
+<body>
+    <img src="logo.svg" alt="" style="top: 16px;left: 16px;position: absolute; width: 250px">
+    <div class="characterEditor" v-if="active">
+        <h1>Редактор персонажа</h1>
+        <div class="block">
+            <label>Выберите пол:</label>
+            <div id="gender" class="changeGender">
+                <input @click="genderChange(1)" type="radio" id="switchMale" name="switch_2" value="male" checked />
+                <label for="switchMale" id="genderMale" class="btn active">Мужской</label>
+                <input @click="genderChange(0)" type="radio" id="switchFemale" name="switch_2" value="female" />
+                <label for="switchFemale" id="genderFemale" class="btn">Женский</label>
+            </div>
+            <!-- <div class="changeGender">
+                <div id="genderMale" class="btn active">Мужской</div>
+                <div id="genderFemale" class="btn">Женский</div>
+            </div> -->
+        </div>
+        <div v-if="!isAppearance">
+            <div class="block">
+                <label>Папа:</label>
+                <list id="father"></list>
+            </div>
+            <div class="block">
+                <label>Мама:</label>
+                <list id="mother"></list>
+            </div>
+        </div>
+        <div class="block">
+            <label>Схожесть:</label>
+            <div class="slider">
+                <input id="parentsSlider" type="range" value="0.5" step="0.01" min="0" max="1">
+            </div>
+            <output id="parentsSlider">0.5</output>
+        </div>
+        <div class="block">
+            <label>Цвет кожи:</label>
+            <div class="slider">
+                <input id="skin" type="range" value="0.5" step="0.01" min="0" max="1">
+            </div>
+            <output id="skin">0.5</output>
+        </div>
+        <h3>Лицо</h3>
+        <div class="block">
+            <label>Высота бровей:</label>
+            <div class="slider">
+                <input id="eyebrowHeight" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="eyebrowHeight">0</output>
+        </div>
+        <div class="block">
+            <label>Глубина бровей:</label>
+            <div class="slider">
+                <input id="eyebrowDepth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="eyebrowDepth">0</output>
+        </div>
+        <div class="block">
+            <label>Ширина носа:</label>
+            <div class="slider">
+                <input id="noseWidth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="noseWidth">0</output>
+        </div>
+        <div class="block">
+            <label>Высота носа:</label>
+            <div class="slider">
+                <input id="noseHeight" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="noseHeight">0</output>
+        </div>
+        <div class="block">
+            <label>Длина кончика носа:</label>
+            <div class="slider">
+                <input id="noseTipLength" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="noseTipLength">0</output>
+        </div>
+        <div class="block">
+            <label>Высота кончика носа:</label>
+            <div class="slider">
+                <input id="noseTipHeight" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="noseTipHeight">0</output>
+        </div>
+        <div class="block">
+            <label>Глубина моста носа:</label>
+            <div class="slider">
+                <input id="noseDepth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="noseDepth">0</output>
+        </div>
+        <div class="block">
+            <label>Поломаность носа:</label>
+            <div class="slider">
+                <input id="noseBroke" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="noseBroke">0</output>
+        </div>
+        <div class="block">
+            <label>Высота скул:</label>
+            <div class="slider">
+                <input id="cheekboneHeight" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="cheekboneHeight">0</output>
+        </div>
+        <div class="block">
+            <label>Ширина скул:</label>
+            <div class="slider">
+                <input id="cheekboneWidth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="cheekboneWidth">0</output>
+        </div>
+        <div class="block">
+            <label>Глубина щеки:</label>
+            <div class="slider">
+                <input id="cheekDepth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="cheekDepth">0</output>
+        </div>
+        <div class="block">
+            <label>Размер глаз:</label>
+            <div class="slider">
+                <input id="eyeScale" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="eyeScale">0</output>
+        </div>
+        <div class="block">
+            <label>Толщина губ:</label>
+            <div class="slider">
+                <input id="lipThickness" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="lipThickness">0</output>
+        </div>
+        <div class="block">
+            <label>Ширина челюсти:</label>
+            <div class="slider">
+                <input id="jawWidth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="jawWidth">0</output>
+        </div>
+        <div class="block">
+            <label>Форма челюсти:</label>
+            <div class="slider">
+                <input id="jawShape" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="jawShape">0</output>
+        </div>
+        <div class="block">
+            <label>Высота подбородка:</label>
+            <div class="slider">
+                <input id="chinHeight" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="chinHeight">0</output>
+        </div>
+        <div class="block">
+            <label>Глубина подбородка:</label>
+            <div class="slider">
+                <input id="chinDepth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="chinDepth">0</output>
+        </div>
+        <div class="block">
+            <label>Ширина подбородка:</label>
+            <div class="slider">
+                <input id="chinWidth" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="chinWidth">0</output>
+        </div>
+        <div class="block">
+            <label>Подбородочный отступ:</label>
+            <div class="slider">
+                <input id="chinIndent" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="chinIndent">0</output>
+        </div>
+        <div class="block">
+            <label>Обхват шеи:</label>
+            <div class="slider">
+                <input id="neck" name="specifications" type="range" value="0" step="0.01" min="-1" max="1">
+            </div>
+            <output id="neck">0</output>
+        </div>
+        <div v-if="!isAppearance">
+            <h3>Внешность</h3>
+            <div class="block">
+                <label>Волосы:</label>
+                <list id="hairListItem"></list>
+            </div>
+            <div class="block">
+                <label>Цвет волос:</label>
+                <list id="hairColorListItem"></list>
+            </div>
+            <div class="block">
+                <label>Брови:</label>
+                <list id="eyeBrowsListItem"></list>
+            </div>
+            <div class="block">
+                <label>Цвет бровей:</label>
+                <list id="eyeBrowsColorListItem"></list>
+            </div>
+            <div class="block">
+                <label>Цвет глаз:</label>
+                <list id="eyeColorListItem"></list>
+            </div>
+            <div class="block">
+                <label>Веснушки:</label>
+                <list id="overlay9ListItem"></list>
+            </div>
+            <div class="block">
+                <label>Цвет веснушек:</label>
+                <list id="overlay9ColorListItem"></list>
+            </div>
+            <div class="block" v-if="gender">
+                <label>Борода:</label>
+                <list id="overlayListItem"></list>
+            </div>
+            <div class="block" v-if="gender">
+                <label>Цвет бороды:</label>
+                <list id="overlayColorListItem"></list>
+            </div>
+            <div class="block" v-if="!gender">
+                <label>Помада:</label>
+                <list id="overlay8ListItem"></list>
+            </div>
+            <div class="block" v-if="!gender">
+                <label>Цвет помады:</label>
+                <list id="overlay8ColorListItem"></list>
+            </div>
+            <div class="block" v-if="!gender">
+                <label>Румянец:</label>
+                <list id="overlay5ListItem"></list>
+            </div>
+            <div class="block" v-if="!gender">
+                <label>Цвет румянца:</label>
+                <list id="overlay5ColorListItem"></list>
+            </div>
+            <div class="block" v-if="!gender">
+                <label>Макияж:</label>
+                <list id="overlay4ListItem"></list>
+            </div>
+        </div>
+        <div @click="saveCharacter" class="button">Сохранить</div>
+    </div>
+    <div class="camera">
+        <p>Поворот камеры</p>
+        <input id="rotate" type="range" value="100" step="1" min="0" max="360">
+        <output id="rotate">100</output>
+        <p>Дальность камеры</p>
+        <input id="depth" type="range" value="0" step="0.01" min="0" max="1">
+        <output id="depth">0</output>
+        <p>Высота камеры</p>
+        <input id="height" type="range" value="0" step="0.01" min="-0.7" max="0.7">
+        <output id="height">0</output>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/rangeslider.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/character.js"></script>
+</body>
+</html>

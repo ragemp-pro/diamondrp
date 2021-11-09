@@ -3,8 +3,8 @@
 export {}
 let baseUrl:string;
 mp.events.add('web:browsers:urls', (q) => {
-  let url = q[4]
-  baseUrl = url;
+  // let url = q[4]
+  baseUrl = 'http://localhost:3400/minigames/';
 })
 let minigameID = 0;
 
@@ -18,8 +18,8 @@ export function playMinigame(name:minigameTypes):Promise<boolean>{
     mp.gui.cursor.show(true, true)
     minigameID++;
     const id = minigameID;
-    let browser = mp.browsers.new(baseUrl+name+"/index.html");
-    browser.execute("minigameID = "+id+";");
+    let browser = mp.browsers.new(baseUrl + name + "/index.html");
+    browser.execute("minigameID = " + id + ";");
     minigameCb.set(id, resolve)
     minigameName.set(name, id);
     minigameBrowser.set(id, browser)
@@ -36,7 +36,7 @@ export function playMinigame(name:minigameTypes):Promise<boolean>{
 }
 
 setTimeout(() => {
-  mp.events.register("server:playMinigame", (name:minigameTypes) => {
+  mp.events.add("server:playMinigame", (name:minigameTypes) => {
     return playMinigame(name)
   })
 }, 100)

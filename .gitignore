@@ -1,4 +1,9 @@
-
+/bin
+/log
 node_modules
-/web
-/.cache
+/web/web
+/packages
+/client_packages/client
+/client_packages/.listcache
+/ragemp-server.exe
+/BugTrap-x64.dll

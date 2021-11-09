@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Lambda Menu</title>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/menu.css" />
+	<link rel="stylesheet" type="text/css" href="css/colorPicker.css" />
+
+
+	<link rel="stylesheet" href="iziToast.css">
+	<script src="iziToast.js"></script>
+	<script src="js/izimodal.js"></script>
+	<script src="js/colorPicker.js"></script>
+
+	<!--===============================================================================================-->
+</head>
+
+<style type="text/css">
+	html body {
+		font-family: Arial;
+		overflow: hidden;
+	}
+
+	#container {
+		left: 5%;
+		top: 10px;
+		position: absolute;
+	}
+
+	.popup-menu {
+		margin: 100px auto;
+
+	}
+</style>
+
+<body>
+
+
+	<div class="logotype">
+		<img id="logo" src="PRR11.png" width="90px">
+	</div>
+
+
+	<div id="notifyAddonMenu" v-if="show">
+		<span class="button">
+			{{button}}
+		</span>
+		<span class="text">
+			{{text}}
+		</span>
+	</div>
+
+	<div id="container" style="display:none;">
+
+		<!-- HERE GOES POPUP MENU HTML -->
+
+		<popup-menu v-bind:menu="menu"></popup-menu>
+
+		<!-- HERE POPUP MENU HTML ENDS -->
+
+	</div>
+
+	<!-- VUE TEMPLATES -->
+
+	<!-- MENU TEMPLATE -->
+
+	<template id="popup-menu">
+		<div class="popup-menu" v-if="menu">
+			<div v-bind:class="[ 'header', currentMenu.style ]">
+				<h1 v-html="currentMenu.title"></h1>
+				<h3>
+					<span v-html="currentMenu.subtitle"></span>
+					<span class="right">{{ currentMenu.index + 1 }} / {{ currentMenu.items.length }}</span>
+				</h3>
+				<div class="clear"></div>
+			</div>
+
+			<ul>
+				<li v-for="(item, index) in currentMenu.items" v-if="item.visible" v-bind:class="[item.style, { active: currentMenu.index == index }]" v-on:click="processClick(index)">
+					<div v-if="Object.prototype.toString.call(item.value) !== '[object Array]'">
+						<span v-if="item.value" v-html="item.key"></span>
+						<span v-if="item.value" v-html="item.value"></span>
+						<div v-else v-html="item.key"></div>
+					</div>
+					<div v-else>
+						<span v-html="item.key"></span>
+						<span>
+							<selection v-bind:list="item.value" v-bind:index="item.index"></selection>
+						</span>
+					</div>
+				</li>
+			</ul>
+
+			<div class="scroll-line" v-if="currentMenu.items.length > currentMenu.limit"></div>
+			<div class="help" v-if="help">
+				<p v-html="help"></p>
+			</div>
+			<div v-if="currentMenu.slider">
+				<slider v-bind:name="currentMenu.slider.name" v-bind:units="currentMenu.slider.units" v-bind:value="currentMenu.slider.value"></slider>
+			</div>
+			<div v-if="currentMenu.colorPicker">
+				<color-selector v-bind:name="currentMenu.colorPicker.name" v-bind:colors="currentMenu.colorPicker.colors" v-bind:index="currentMenu.colorPicker.index"></color-selector>
+			</div>
+			<div v-if="currentMenu.grid">
+				<xygrid v-bind:x="currentMenu.grid.x" v-bind:y="currentMenu.grid.y" v-bind:top="currentMenu.grid.top" v-bind:bottom="currentMenu.grid.bottom" v-bind:left="currentMenu.grid.left" v-bind:right="currentMenu.grid.right"></xygrid>
+			</div>
+
+			<div class="stats" v-if="currentMenu.stats">
+				<div v-for="item in currentMenu.stats">
+					<span v-html="item.name"></span>
+					<stage v-bind:levels="item.levels" v-bind:value="item.value" v-bind:width="item.width">
+					</stage>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<!-- SELECTION TEMPLATE (with right/left buttons) -->
+	<span id="templ">
+		<template id="selection">
+			<ul class="selection">
+				<li v-for="(item, ind) in list" v-bind:class="{ active: index === ind }">{{ item }}</li>
+			</ul>
+		</template>
+
+		<!-- STAT ITEM TEMPLATE (small, progress bar) -->
+
+		<template id="stage">
+			<div class="stage" v-bind:style="{ width: width + 'px' }">
+				<div class="level" v-for="level in levels" v-bind:style="{ width: (width / levels - 2) + 'px' }">
+				</div>
+				<div class="value" v-if="value" v-for="level in valueCount" v-bind:style="{ width: computeValueWidth(level) + 'px',
+													 left: (level - 1) * (computeValueWidth(level - 1) + 2) + 'px'}">
+				</div>
+				<div class="clear"></div>
+			</div>
+		</template>
+
+		<!-- PROGRESS BAR TEMPLATE (big stat item) -->
+
+		<template id="slider">
+			<div class="slider">
+				<div class="title">
+					<span>{{ 0 + '' + units }}</span>
+					<span>{{ 100 + '' + units }}</span>
+					<span class="name">{{ name }}</span>
+					<div class="clear"></div>
+
+				</div>
+				<stage v-bind:levels="1" v-bind:value="value" v-bind:width="0"></stage>
+			</div>
+		</template>
+
+		<!-- COLOR SELECTOR TEMPLATE -->
+
+		<template id="color-selector">
+			<div class="colors">
+				<div class="title">Colors ({{ (index + 1) + ' / ' + colors.length }})</div>
+				<ul>
+					<li v-for="(color, ind) in colors" v-if="isShowing(ind)" v-bind:style="{ background: '#' + color }" v-bind:class="{ active: index === ind }"></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</template>
+
+		<!-- XY GRID -->
+
+		<template id="xygrid">
+			<div class="xygrid">
+				<div class="top">{{ top }}</div>
+				<div class="grid">
+					<div class="point" v-bind:style="{ left: realX + 'px', top: realY + 'px' }"></div>
+				</div>
+				<div class="bottom">{{ bottom }}</div>
+				<div class="r">
+					<div class="left">{{ left }}</div>
+				</div>
+				<div class="l">
+					<div class="right">{{ right }}</div>
+				</div>
+			</div>
+		</template>
+	</span>
+
+
+
+
+
+
+
+	<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
+
+
+	<script src="js/main.js"></script>
+
+
+
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/vue.color.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/help.js"></script>
+
+
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+	<script>
+		$("#forminput").draggable();
+		$("#container").draggable();
+	</script>
+
+
+
+
+</body>
+
+</html>

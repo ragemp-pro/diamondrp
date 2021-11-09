@@ -10152,9 +10152,9 @@ setTimeout(() => {
   });
 }, 100);
 mp.events.add('playerJoin', player => {
-  const resip = player.ip === "127.0.0.1" ? "127.0.0.1" : ip_address;
+  const resip = player.ip == "127.0.0.1" ? "127.0.0.1" : ip_address;
   let port = _methods.methods.isTestServer() ? 3400 : 21428;
-  player.call('web:browsers:urls', [[`http://${resip}:${port}/web/index.html${_newrage.RAGE_BETA ? '?ragebeta' : ''}`, `http://${resip}:${port}/menu/index.html${_newrage.RAGE_BETA ? '?ragebeta' : ''}`, `http://${resip}:${port}/phone/phone.html${_newrage.RAGE_BETA ? '?ragebeta' : ''}`, `http://${resip}:${port}/web/custom_sound.html${_newrage.RAGE_BETA ? '?ragebeta' : ''}`, `http://${resip}:3400/minigames/${_newrage.RAGE_BETA ? '?ragebeta' : ''}`]]);
+  player.call('web:browsers:urls', [[`http://${resip}:3400/web/index.html${_newrage.RAGE_BETA ? '?ragebeta' : ''}`, `http://${resip}:3400/menu/index.html${_newrage.RAGE_BETA ? '?ragebeta' : ''}`, `http://${resip}:3400/phone/phone.html/`, `http://${resip}:3400/web/custom_sound.html${_newrage.RAGE_BETA ? '?ragebeta' : ''}`, `http://${resip}:3400/minigames/`]]);
 });
 app.listen(3400, function () {});
 },{"./modules/methods":"+qXS","./user":"+QE3","./items":"nuVl","../util/newrage":"mgLX"}],"HDmV":[function(require,module,exports) {
@@ -38614,7 +38614,7 @@ module.exports = {
   "host": "127.0.0.1",
   "db_user": "root",
   "password": "",
-  "database": "diamond",
+  "database": "diamond_test",
   "port": 3306
 };
 },{}],"ocv0":[function(require,module,exports) {

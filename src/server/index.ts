@@ -265,7 +265,7 @@ async function init() {
       vehicles.checkVehiclesFuel();
       vehicles.loadAllTimers();
   
-      //vehicles.loadAll();
+      vehicles.loadAll();
       object.loadAll();
       timer.loadAll();
   

@@ -116,7 +116,7 @@ pacificPoss.map((q, index) => {
         return;
     }
     
-    if (!testMode && mp.players.length < 150 && !methods.isTestServer()) {
+    if (!testMode && mp.players.length < 150) {
         player.notify("~r~Онлайн на сервере должен быть более 150 человек");
         return;
     }

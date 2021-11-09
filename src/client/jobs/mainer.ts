@@ -105,7 +105,6 @@ let mainer = {
             let money = count * 14;
             user.giveJobMoney(money);
             coffer.removeMoney(money);
-            mp.game.ui.notifications.show('Вы заработали ~g~$' + methods.numberFormat(money));
             count = 0;
             return;
         }

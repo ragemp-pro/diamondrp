@@ -150,6 +150,7 @@ class Auth extends Component<AuthProps, AuthState> {
           <div className="login-header">
             <img src={logo} alt="" />
           </div>
+
           <div className="white-box-content posrev">
             <div className="title-wrap">
               <h2>Авторизация</h2>
@@ -160,11 +161,13 @@ class Auth extends Component<AuthProps, AuthState> {
                 </a>
               </p>
             </div>
+
             <div className="input-wrap posrev">
               <img src={arrowLeft} alt="" className="login-arrow-left" onClick={() => this.changePlayer(-1)} />
               <div className="icon-left">
                 <span className="glyphicons glyphicons-user"></span>
               </div>
+              
               <input
                 type="text"
                 placeholder="Ваш никнейм"
@@ -176,6 +179,7 @@ class Auth extends Component<AuthProps, AuthState> {
               />
               <img src={arrowRight} alt="" className="login-arrow-right" onClick={() => this.changePlayer(1)} />
             </div>
+
             <div className="input-wrap">
               <div className="icon-left">
                 <span className="glyphicons glyphicons-lock"></span>

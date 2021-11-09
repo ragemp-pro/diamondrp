@@ -1,0 +1,456 @@
+body {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background-color: #000; border-radius: 20px;  }
+::-webkit-scrollbar-thumb        { background-color: #424242; -webkit-appearance: none;  border-radius:20px; }
+::-webkit-scrollbar-thumb:hover  { background-color: #000; }
+
+li {
+    outline: none;
+    cursor: default;
+}
+
+.phone-container {
+    position: absolute;
+    bottom: 35%;
+    right: 20px;
+}
+
+.phone {
+    height: 100%;
+    background: #fff;
+}
+
+.phone-panel {
+    padding: 0 8px;
+}
+
+.cols .icon-item {
+    line-height: 12px;
+    padding: 4px;
+}
+
+.cols .icon-item img {
+    max-width: 30px;
+    object-fit: contain;
+}
+
+.cols .icon-item i, .cols .icon-item label {
+    display: block;
+}
+
+.cols {
+    padding: 4px !important;
+}
+
+.col.active {
+    border-radius: 4px;
+}
+
+.col {
+    padding: 0 !important;
+}
+
+.network {
+    margin-left: 6px; padding: 6px 0; display: flex;
+}
+.network-small {
+    height: 2px; width: 3px; margin: 0 1px; margin-top: 5px;
+}
+.network-medium {
+    height: 4px; width: 3px; margin: 0 1px; margin-top: 3px;
+}
+.network-large {
+    height: 7px; width: 3px; margin: 0 1px;
+}
+
+.collection {
+    border: none;
+    overflow: auto;
+    margin: 0;
+    border-radius: 0;
+}
+
+.phone-header {
+    line-height: 19px;
+}
+
+.phone-777 {
+    padding: 60px 34px 74px;
+    background: url("https://top-gta.com/client/images/phones/777.png");
+    width: 248px;
+    height: 435px;
+}
+
+.phone-555 {
+    padding: 57px 33px;
+    background: url("https://top-gta.com/client/images/phones/555.png");
+    width: 245px;
+    height: 435px;
+}
+
+.phone-111 {
+    padding: 11px 7px;
+    background: url(https://i.imgur.com/2LRLn2j.png);
+    /* background-position: 0px -340px; */
+    background-size: contain;
+    width: 238px;
+    height: 497px;
+    z-index: 1;
+    top: 20%;
+}
+
+.phone-404, .phone-403 {
+    padding: 38px 24px 47px;
+    background: url("https://top-gta.com/client/images/phones/404.png");
+    width: 245px;
+    height: 435px;
+    /*font-family: monospace;*/
+}
+
+.phone-777 ::-webkit-scrollbar-track        { background-color: #fff; border-radius: 20px;  }
+.phone-777 ::-webkit-scrollbar-thumb:hover  { background-color: #fff; }
+
+.phone-777 .black-or-white-text {
+    color: #000;
+}
+
+.phone-777 .collection {
+    height: 303px;
+}
+
+.phone-777 .collection.list {
+    height: calc(100% - 37px);
+}
+
+.phone-777 .collection.list.lifeinv {
+    height: calc(100% - 64px);
+}
+
+.phone-777 .collection .collection-item {
+    background-color: transparent;
+    border-bottom: 1px solid #EEEEEE;
+    color: #000;
+    font-size: 14px;
+}
+
+.phone-777 .phone-header {
+    background: #fff !important;
+    position: relative;
+}
+
+.phone-777 .network-small {
+    background: #000 !important;
+}
+
+.phone-777 .network-medium {
+    background: #000 !important;
+}
+
+.phone-777 .network-large {
+    background: #000 !important;
+}
+
+.phone-777 .active {
+    background-color: rgba(48,79,254,.2) !important;
+}
+
+.phone-777 label {
+    color: #454545;
+}
+
+.phone-777 .bg-img {
+    background: url("https://i.imgur.com/wFGPeBJ.png");
+
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.phone-777 .bg-black {
+    background-color: rgba(255,255,255,.8) !important;
+    height: 282px;
+}
+
+.phone-777 .phone-main-date {
+    width: 90px; line-height: 8px; padding: 5px 0;
+}
+.phone-777 .phone-main-time {
+    width: 62px; font-size: 23px;
+    color: #000000;
+}
+
+.phone-111 ::-webkit-scrollbar-track        { background-color: #000; border-radius: 20px;  }
+.phone-111 ::-webkit-scrollbar-thumb:hover  { background-color: #000; }
+
+.phone-111 .black-or-white-text {
+    color: #000;
+}
+
+.phone-111 .collection {
+    height: 303px;
+}
+
+.phone-111 .collection.list {
+    height: calc(100% - 37px);
+}
+
+.phone-111 .collection.list.lifeinv {
+    height: calc(100% - 64px);
+}
+
+.phone-111 .collection .collection-item {
+    background-color: transparent;
+    border-bottom: 1px solid #EEEEEE;
+    color: #fff;
+    font-size: 14px;
+}
+
+.phone-111 .phone {
+    margin-right: 1px;
+    border-radius: 20px;
+}
+
+.phone-111 .phone-header {
+    background: #000 !important;
+    position: relative;
+    border-radius: 20px 20px 0 0px;
+    padding: 10px;
+}
+
+
+.phone-111 .network-small {
+    background: #000 !important;
+}
+
+.phone-111 .network-medium {
+    background: #000 !important;
+}
+
+.phone-111 .network-large {
+    background: #000 !important;
+}
+
+.phone-111 .active {
+    background-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.phone-111 label {
+    color: #ffffff;
+}
+
+.phone-111 .bg-img {
+    background: url("https://i.imgur.com/qvFQD6P.png");
+
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.phone-111 .bg-black {
+    background-color: rgba(0,0,0,.3) !important;
+    height: 436px;
+    border-radius: 0 0 20px 20px;
+}
+
+.phone-111 .phone-main-date {
+    width: 90px; line-height: 8px; padding: 5px 0;
+}
+.phone-111 .phone-main-time {
+    width: 62px; font-size: 23px;
+    color: #fff;
+}
+
+.phone-404 input {
+    margin: 0;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.phone-404 .black-or-white-text {
+    color: #fff;
+}
+
+.phone-404 .collection {
+    height: 303px;
+}
+
+.phone-404 .collection.list {
+    height: calc(100% - 38px);
+}
+
+.phone-404 .collection.list.lifeinv {
+    height: calc(100% - 64px);
+}
+
+.phone-404 .collection .collection-item {
+    background-color: transparent;
+    border-bottom: 1px solid #424242;
+    font-size: 14px;
+}
+
+.phone-404 .active {
+    background-color: rgba(255,255,255,.2) !important;
+}
+
+.phone-404 .phone-sms-ico {
+    font-size: 12px;
+}
+
+.phone-404 .phone-sms-ico-in {
+    color: #2962FF;
+}
+
+.phone-404 .phone-sms-ico-out {
+    color: #00C853;
+}
+
+.phone-404 .bg-img {
+    background: url("https://i.imgur.com/4menLNo.png");
+
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.phone-404 .bg-black {
+    background-color: rgba(0,0,0,.4) !important;
+    height: 331px;
+}
+
+.phone-404 .phone-main-date {
+    width: 90px; line-height: 8px; padding: 5px 0;
+}
+.phone-404 .phone-main-time {
+    width: 62px; font-size: 23px;
+}
+
+.phone-403 input {
+    margin: 0;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.phone-403 .black-or-white-text {
+    color: #fff;
+}
+
+.phone-403 .collection {
+    height: 303px;
+}
+
+.phone-403 .collection.list {
+    height: calc(100% - 38px);
+}
+
+.phone-403 .collection.list.lifeinv {
+    height: calc(100% - 64px);
+}
+
+.phone-403 .collection .collection-item {
+    background-color: transparent;
+    border-bottom: 1px solid #424242;
+    font-size: 14px;
+}
+
+.phone-403 .active {
+    background-color: rgba(255,255,255,.2) !important;
+}
+
+.phone-403 .phone-sms-ico {
+    font-size: 12px;
+}
+
+.phone-403 .phone-sms-ico-in {
+    color: #2962FF;
+}
+
+.phone-403 .phone-sms-ico-out {
+    color: #00C853;
+}
+
+.phone-403 .bg-img {
+    background: url("https://i.imgur.com/4menLNo.png");
+
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.phone-403 .bg-black {
+    background-color: rgba(0,0,0,.4) !important;
+    height: 331px;
+}
+
+.phone-403 .phone-main-date {
+    width: 90px; line-height: 8px; padding: 5px 0;
+}
+.phone-403 .phone-main-time {
+    width: 62px; font-size: 23px;
+}
+
+.phone-555 .black-or-white-text {
+    color: #fff;
+}
+
+.phone-555 .collection {
+    height: 303px;
+}
+
+.phone-555 .collection.list {
+    height: calc(100% - 38px);
+}
+
+.phone-555 .collection.list.lifeinv {
+    height: calc(100% - 64px);
+}
+
+.phone-555 .collection .collection-item {
+    background-color: transparent;
+    border-bottom: 1px solid #424242;
+    font-size: 14px;
+}
+
+.phone-555 .active {
+    background-color: rgba(255,255,255,.2) !important;
+}
+
+.phone-555 .phone-sms-ico {
+    font-size: 12px;
+}
+
+.phone-555 .phone-sms-ico-in {
+    color: #2962FF;
+}
+
+.phone-555 .phone-sms-ico-out {
+    color: #00C853;
+}
+
+.phone-555 .bg-img {
+    background: url("https://i.imgur.com/CE0kotf.png");
+
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.phone-555 .bg-black {
+    background-color: rgba(0,0,0,.8) !important;
+    height: 302px;
+}
+
+.phone-555 .phone-main-date {
+    width: 90px; line-height: 8px; padding: 5px 0;
+}
+.phone-555 .phone-main-time {
+    width: 62px; font-size: 23px;
+}

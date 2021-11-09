@@ -1,0 +1,119 @@
+<html>
+<style>
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+  }
+</style>
+
+<div id="body">
+
+</div>
+<img id="wash" style="position: absolute;" src="http://pluspng.com/img-png/png-rag-rag-482.png" width="30%">
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+<script>
+  let minigameID = 0;
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    if (data.indexOf("money") != 0) return;
+    document.querySelector("#" + data).remove()
+    needMake--;
+    if (needMake == 0) mp.trigger("minigame:end", minigameID, true);
+  }
+
+  let needMake = 0
+
+  let dirtyImgs = ["1.png", 
+    "2.png",
+    "3.png"
+  ]
+
+  function randDirty() {
+    return dirtyImgs[getRandomInt(0, dirtyImgs.length - 1)]
+  }
+
+  function generateRandom(count = 10) {
+    needMake = count;
+    for (let id = 0; id < count; id++) {
+      var img = new Image();
+      img.src =
+        randDirty();
+      img.id = "money_" + id
+      img.className = "dirty"
+      img.setAttribute('style',
+        `width:40%;position:absolute;left:${getRandomInt(window.innerWidth/100*20, window.innerWidth/100*60)}px;top:${getRandomInt(window.innerHeight/100*20, window.innerHeight/100*60)}px;`
+      )
+      img.setAttribute('dirty',
+        15
+      )
+      document.getElementById('body').appendChild(img);
+    }
+
+    $(".dirty").droppable({
+      over: function (event, ui) //если фигура над клеткой- выделяем её границей
+      {
+        wash(this)
+      },
+      out: function (event, ui) //если фигура ушла- снимаем границу
+      {
+        wash(this)
+      },
+      drop: function (event, ui) //если бросили фигуру в клетку
+      {
+
+        wash(this)
+      }
+    });
+    console.log(needMake)
+
+  }
+
+  function wash(el) {
+    let dirtyLevel = $(el).attr("dirty");
+    dirtyLevel--;
+    $(el).attr("dirty", dirtyLevel)
+    if (dirtyLevel == 0) {
+      $(el).fadeOut(500, () => {
+        document.querySelector("#" + el.id).remove()
+        needMake--;
+        console.log(needMake)
+        if (needMake == 0) mp.trigger("minigame:end", minigameID, true);
+      })
+    } else {
+      $(el).fadeTo(300, dirtyLevel/10); 
+    }
+  }
+
+  $("#wash").draggable({
+    revert: false,
+    revertDuration: 500
+  });
+
+
+
+
+
+
+  generateRandom(getRandomInt(25, 30));
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+</script>
+
+</html>

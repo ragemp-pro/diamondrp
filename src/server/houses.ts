@@ -30,9 +30,9 @@ export let houses = {
         housesEntity.findAll().then(rows => {
             rows.forEach(function(item) {
 
-                let needNewBlip = (methods.isTestServer() && !item['is_buy'] && methods.getRandomInt(1, 4) != 1) ? false : true;
-                if(needNewBlip){
-                    let pos = new mp.Vector3(parseFloat(item['x']), parseFloat(item['y']), parseFloat(item['z']));
+                // let needNewBlip = (methods.isTestServer() && !item['is_buy'] && methods.getRandomInt(1, 4) != 1) ? false : true;
+                // if(needNewBlip){
+                    let pos = new mp.Vector3(item['x'], item['y'], item['z']);
                     houses.data.set(item.id, item);
                     methods.createStaticCheckpoint(pos.x, pos.y, pos.z, "Нажмите ~g~Е~s~ чтобы открыть меню");
                     let hBlip = methods.createBlip(
@@ -44,7 +44,7 @@ export let houses = {
                         item['is_buy'] ? 1 : 0
                         );
                     hBlips.set(item.id, hBlip);
-                }
+                // }
                 //methods.createStaticCheckpoint(parseFloat(item['int_x']), parseFloat(item['int_y']), parseFloat(item['int_z']) - 1, "Нажмите ~g~Е~s~ чтобы открыть меню", 1, methods.parseInt(item.id));
 
             });

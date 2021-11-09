@@ -613,7 +613,7 @@ export let methods = {
 		if (!methods.isTestServer()) exec("pm2 restart ragemp");
 	},
 	isTestServer: () => {
-		return !mp.config.announce
+		return mp.config.test;
 	},
 	sha256: function (text: string) {
 		return crypto.createHash('sha256').update(text).digest('hex');
@@ -1277,7 +1277,7 @@ export let methods = {
 	replaceAll: function (str: string, find: string, replace: string) {
 		return str.replace(new RegExp(methods.escapeRegExp(find), 'g'), replace);
 	},
-	createStaticCheckpoint: function (x: number, y: number, z: number, message: string, scale?: number, dimension?: number, color?: number[], height?: number) {
+	createStaticCheckpoint: function (x: number, y: number, z: number, message: string, scale?: number, dimension?: number, color?: RGBA, height?: number) {
 
 		if (scale == undefined)
 			scale = 1;
@@ -1296,12 +1296,11 @@ export let methods = {
 		if (message != undefined)
 			Container.Set(999999, 'checkpointStaticLabel' + checkpointID, message);
 
-        /*let pos = new mp.Vector3(parseFloat(x), parseFloat(y), parseFloat(z));
-        mp.markers.new(1, pos, scale,
-        {
+        // let pos = new mp.Vector3(parseFloat(x), parseFloat(y), parseFloat(z));
+        mp.markers.new(1, new mp.Vector3(x, y, z), scale, {
             color: color,
             dimension: dimension
-        });*/
+        });
 
 		//return mp.colshapes.newTube(x, y, z, scale + 0.4, scale + 0.6);
         /*let checkpoint = mp.checkpoints.new(1, pos, scale + 0.2,
@@ -1369,7 +1368,7 @@ export let methods = {
 		methods.createBlip(new mp.Vector3(1853.22, 3686.6796875, 33.2670), 60, 16, 0.8, 'Sheriff Department');
 		methods.createBlip(new mp.Vector3(-138.8656, -634.0953, 168.8204), 535, 67, 0.8, 'Arcadius - Бизнес Центр');
 		methods.createBlip(new mp.Vector3(-66.66476, -802.0474, 44.22729), 475, 59, 0.8, 'Государственный банк "Maze"');
-		methods.createBlip(new mp.Vector3(2523.98, -412.34, 94.12), 498, 0, 0.8, 'Офис FIB');
+		// methods.createBlip(new mp.Vector3(2523.98, -412.34, 94.12), 498, 0, 0.8, 'Офис FIB');
 		methods.createBlip(new mp.Vector3(1830.489, 2603.093, 45.8891), 238, 0, 0.8, 'Федеральная тюрьма');
 		methods.createBlip(new mp.Vector3(-546.04, -202.54, 38.23), 419, 0, 0.8, 'Здание правительства');
 		methods.createBlip(new mp.Vector3(354.65, -595.92, 28.79), 489, 59, 0.8, 'Здание больницы LS');
@@ -1380,7 +1379,7 @@ export let methods = {
 
 		methods.createBlip(new mp.Vector3(-3544, 6135, 0), 68, 59, 0.8, 'Рыбалка запрещена');
 		methods.createBlip(new mp.Vector3(4989, 1712, 0), 68, 59, 0.8, 'Рыбалка запрещена');
-		//methods.createBlip(new mp.Vector3(-1337.255, -1277.948, 3.872962), 362, 0, 0.8, 'Магазин масок');
+		methods.createBlip(new mp.Vector3(-1337.255, -1277.948, 3.872962), 362, 0, 0.8, 'Магазин масок');
 
 		methods.createBlip(new mp.Vector3(-1516.71, 851.46, 181.59), 78, 71, 0.8, 'Украинское посольство');
 		methods.createBlip(new mp.Vector3(-1366.50, 56.68, 54.10), 78, 4, 0.8, 'Русское посольство');

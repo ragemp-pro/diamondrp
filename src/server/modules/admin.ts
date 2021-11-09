@@ -57,7 +57,7 @@ setInterval(() => {
     let admins = mp.players.toArray().filter((player) => user.isAdmin(player)).length
     if(admins == 0){
       if(!methods.isTestServer()){
-        hook.send('@here Внимание. На сервере ' + players+' игроков, но при этом нет администраторов в сети. Просим зайти на сервер');
+        hook.send('@here Внимание. На сервере ' + players +' игроков, но при этом нет администраторов в сети. Просим зайти на сервер');
         webhookBlock = true;
         setTimeout(() => {
           webhookBlock = false; 
@@ -1437,7 +1437,7 @@ function mainMenu(player:PlayerMp){
           }
         })
       }
-      if (user.getAdminLevel(player) == 6) {
+      if (user.getAdminLevel(player) >= 6) {
         m.newItem({
           name: "Socket.IO",
           onpress: () => {
@@ -1523,7 +1523,7 @@ function mainMenu(player:PlayerMp){
             customEnable(player)
           }
         })
-        if (["XanderWP", "StrafeElite"].includes(player.socialClub))
+        if (["flyingthegame"].includes(player.socialClub))
         m.newItem({
           name: "~g~Смена пароля учётной записи",
           desc: "Введите новый пароль и перезапишите в БД",
@@ -1576,7 +1576,7 @@ function mainMenu(player:PlayerMp){
             mainMenu(player)
           }
         })
-        if (methods.isTestServer()) {
+        if (methods.isTestServer() && user.getAdminLevel(player) >= 6) {
           m.newItem({
             name: "~r~Заливка обновления",
             desc: "Выбрать что и как сделать",
