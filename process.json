@@ -1,0 +1,9 @@
+{
+  "apps" : [
+    {
+      "name"        : "ragemp",
+      "script"      : "server",
+      "log_date_format" : "HH:mm:ss.SSS"
+    }
+  ]
+}
