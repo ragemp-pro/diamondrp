@@ -86,7 +86,7 @@ class Npc extends Component<any, NpcState> {
           <div className="npc-chat">
             {messages.map((msg, id) =>
               msg ? (
-                <div className={!msg.me ? 'npc-message msg' : 'my-message msg'}>>{Parser(msg.text)}</div>
+                <div className={!msg.me ? 'npc-message msg' : 'my-message msg'}>{Parser(msg.text)}</div>
               ) : (
                 ''
               )
