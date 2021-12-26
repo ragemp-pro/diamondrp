@@ -3,14 +3,15 @@
 
 # Resources
 
-| Name | Link | Password |
-| ------ | ------ | ------ |
-| DLCpacks | https://cutt.ly/zR5hnGk (GD) | 'nJjXtYmRhFcBdFz;tYoByFVjZ!2020
-| Databases | https://cutt.ly/rR5koQX (GD) | 'NsCfVfZKexIfZRCdjtb!d20Ujle!2020
-| CLEAR DATABASE | https://cutt.ly/aR6hEDX (GD) | 'NsCfVfZKexIfZRCdjtb!d20Ujle!2020
+| Name | Link |
+| ------ | ------ |
+| DLCpacks | https://drive.google.com/file/d/1T3cHYEvGI4ZucaHT4qmOekbw9jXOfrGR
 
 # Installation
 Let's break it down so it's clear to everyone.
+
+Full installation instructions + discussion and help topic:
+https://ragemp.pro/resources/gotovaja-sborka-servera-diamond-rp-dlja-rage-multiplayer.300/
 
 1. You need to download the complete resource on GitHub, as well as the database (there are two provided, one clean, the other with real player accounts).
 2. Unpack the resulting archives in a convenient place for you.

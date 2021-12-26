@@ -58,7 +58,7 @@ import './managers/attach_system';
 import './managers/anim_auto';
 import './managers/npc';
 import './managers/menu';
-import './managers/crouch';
+//import './managers/crouch'; v2545 update broken
 import './managers/custom_sound';
 import './modules/race2';
 import './modules/socket';

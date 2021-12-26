@@ -17,7 +17,7 @@ mp.events.addSocket = (name, handle) => {
 let http = httpServer.createServer();
 let ip_address = ip.address();
 
-export const socketPort = 1222;
+export const socketPort = 3400;
 
 http.listen(socketPort, function(){
   console.log(`listening on *: ${socketPort}`);

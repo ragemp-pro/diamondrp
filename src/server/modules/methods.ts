@@ -613,7 +613,7 @@ export let methods = {
 		if (!methods.isTestServer()) exec("pm2 restart ragemp");
 	},
 	isTestServer: () => {
-		return mp.config.test;
+		return !mp.config.announce;
 	},
 	sha256: function (text: string) {
 		return crypto.createHash('sha256').update(text).digest('hex');
